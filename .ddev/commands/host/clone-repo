@@ -9,8 +9,8 @@ REPO_URL="git@git.drupal.org:project/canvas.git"
 CONTRIB_DIR="$DDEV_APPROOT/web/modules/contrib"
 TARGET_DIR="$DDEV_APPROOT/web/modules/contrib/canvas"
 
-if [ ! -d "$TARGET_DIR" ]; then
-    echo "Directory $TARGET_DIR doesn't exist, cloning repository…"
+if [ ! -d "$TARGET_DIR" ] || [ -z "$(ls -A "$TARGET_DIR" 2>/dev/null)" ]; then
+    echo "Directory $TARGET_DIR doesn't exist or is empty, cloning repository…"
     
     # Create contrib directory if it doesn't exist.
     mkdir -p "$CONTRIB_DIR"
