@@ -1,27 +1,38 @@
 #!/bin/bash
 
-## Description: Drupal Canvas: Run UI app's dev server, optionally building the UI code first.
-## Usage: ui [--build|-b]
-## Example: "ddev ui" or "ddev ui --build" or "ddev ui -b"
+## Description: Drupal Canvas: Run UI app's dev server, optionally installing dependencies and/or building the UI code first.
+## Usage: ui [--install|-i] [--build|-b]
+## Example: "ddev ui" or "ddev ui --build" or "ddev ui -b" or "ddev ui --install" or "ddev ui -i" or "ddev ui --install --build"
 ## ExecRaw: true
 
 # Parse command line arguments
 BUILD_FLAG=false
+INSTALL_FLAG=false
 while [[ $# -gt 0 ]]; do
     case $1 in
         --build|-b)
             BUILD_FLAG=true
             shift
             ;;
+        --install|-i)
+            INSTALL_FLAG=true
+            shift
+            ;;
         *)
             echo "Unknown option: $1"
-            echo "Usage: ui [--build|-b]"
+            echo "Usage: ui [--install|-i] [--build|-b]"
             exit 1
             ;;
     esac
 done
 
 cd "$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas/ui" || exit
+
+if [ "$INSTALL_FLAG" = true ]; then
+    npm install \
+        --prefix "$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas/ui" \
+        || exit 1
+fi
 
 if [ "$BUILD_FLAG" = true ]; then
     npm run build \
