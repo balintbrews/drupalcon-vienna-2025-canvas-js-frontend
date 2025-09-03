@@ -47,10 +47,7 @@
     },
     "scripts": {
         "pre-install-cmd": [
-            "@check-canvas-repo"
-        ],
-        "check-canvas-repo": [
-            "./scripts/clone-repo.sh --check-only"
+            "./scripts/check-repo.sh"
         ]
     },
     "extra": {
