@@ -7,7 +7,8 @@ to use for my day-to-day development work, with workflows and tools I prefer.
 ## Setup
 
 ```bash
-git clone git@github.com:balintbrews/drupal-canvas-dev.git && \
+git clone git@github.com:balintbrews/drupal-canvas-dev.git canvas && \
+cd canvas && \
 ddev start && \
 ddev clone-repo && \
 ddev composer install && \
