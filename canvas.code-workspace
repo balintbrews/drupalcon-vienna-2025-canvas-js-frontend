@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "name": "UI",
+      "path": "web/modules/contrib/canvas/ui"
+    },
+    {
+      "name": "CLI",
+      "path": "web/modules/contrib/canvas/cli"
+    },
+    {
+      "name": "Canvas",
+      "path": "web/modules/contrib/canvas"
+    },
+    {
+      "name": "Drupal/Root",
+      "path": "."
+    }
+  ]
+}
