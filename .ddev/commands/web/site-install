@@ -1,0 +1,23 @@
+#!/bin/bash
+
+## Description: Install Drupal site for Brewing Drupal Canvas.
+## Aliases: si
+## Usage: site-install
+## Example: "ddev site-install"
+## ExecRaw: true
+
+cd "$DDEV_COMPOSER_ROOT" || exit
+
+# Install Drupal
+drush site-install \
+    --account-pass=admin \
+    --site-name="Brewing Drupal Canvas" \
+    --account-pass=admin \
+    --yes \
+    || exit 1
+
+# Enable modules
+drush pm:enable -y canvas canvas_vite
+
+# Create a canvas_page entity.
+drush php:eval "\Drupal::service('entity_type.manager')->getStorage('canvas_page')->create(['title' => 'Home', 'path' => ['alias' => '/home']])->save();"
