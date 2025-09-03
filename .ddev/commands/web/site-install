@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Description: Install Drupal site for Brewing Drupal Canvas.
+## Description: Drupal Canvas: Install Drupal site.
 ## Aliases: si
 ## Usage: site-install
 ## Example: "ddev site-install"
