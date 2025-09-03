@@ -41,3 +41,5 @@
 /web/sites/example.settings.local.php
 /web/sites/example.sites.php
 /web/sites/simpletest
+
+node_modules

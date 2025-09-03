@@ -1,0 +1,7 @@
+web
+recipes
+.vscode
+.ddev/.ddev-docker-*.yaml
+.ddev/mutagen
+.ddev/providers
+.ddev/traefik
