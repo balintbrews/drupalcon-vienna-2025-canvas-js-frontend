@@ -8,14 +8,19 @@
         "docs": "https://github.com/balintbrews/drupal-canvas-dev#readme",
         "chat": "https://drupal.org/slack"
     },
-    "repositories": [
-        {
+    "repositories": {
+        "canvas": {
+            "type": "path",
+            "url": "web/modules/contrib/canvas"
+        },
+        "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
-    ],
+    },
     "require": {
         "composer/installers": "^2.3",
+        "drupal/canvas": "1.x-dev",
         "drupal/core-composer-scaffold": "^11.2",
         "drupal/core-project-message": "^11.2",
         "drupal/core-recipe-unpack": "^11.2",
@@ -39,6 +44,14 @@
             "php-tuf/composer-integration": true
         },
         "sort-packages": true
+    },
+    "scripts": {
+        "pre-install-cmd": [
+            "@check-canvas-repo"
+        ],
+        "check-canvas-repo": [
+            "./scripts/clone-repo.sh --check-only"
+        ]
     },
     "extra": {
         "drupal-scaffold": {
