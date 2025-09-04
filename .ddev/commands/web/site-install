@@ -6,18 +6,31 @@
 ## Example: "ddev site-install"
 ## ExecRaw: true
 
-cd "$DDEV_COMPOSER_ROOT" || exit
+set -e
 
-# Install Drupal
+cd "$DDEV_COMPOSER_ROOT"
+
+# Install Drupal.
 drush site-install \
     --account-pass=admin \
     --site-name="Brewing Drupal Canvas" \
     --account-pass=admin \
-    --yes \
-    || exit 1
+    --yes
 
-# Enable modules
-drush pm:enable -y canvas canvas_vite
+# Enable modules.
+drush pm:enable --yes \
+    canvas \
+    canvas_vite \
+    canvas_ai \
+    ai_provider_openai
 
 # Create a canvas_page entity.
 drush php:eval "\Drupal::service('entity_type.manager')->getStorage('canvas_page')->create(['title' => 'Home', 'path' => ['alias' => '/home']])->save();"
+
+# Configure the OpenAI AI provider for Canvas AI.
+drush key-save openai_api_key --label="OpenAI API key" --key-type=authentication --key-provider=env --key-provider-settings='{"env_variable": "OPENAI_API_KEY"}'
+drush config:set --yes ai_provider_openai.settings api_key openai_api_key
+drush config:set --yes --input-format=yaml ai.settings default_providers.chat "{provider_id: openai, model_id: gpt-4o}"
+drush config:set --yes --input-format=yaml ai.settings default_providers.chat_with_complex_json "{provider_id: openai, model_id: gpt-4o}"
+drush config:set --yes --input-format=yaml ai.settings default_providers.chat_with_structured_response "{provider_id: openai, model_id: gpt-4.1}"
+drush config:set --yes --input-format=yaml ai.settings default_providers.chat_with_tools "{provider_id: openai, model_id: gpt-4.1}"
