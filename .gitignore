@@ -45,3 +45,4 @@
 /web/sites/simpletest
 
 node_modules
+.cache

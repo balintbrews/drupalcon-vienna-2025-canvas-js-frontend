@@ -19,12 +19,13 @@ ddev launch
 
 ## Commands
 
-| Command        | Description                                                                                                      | Environment   |
-| -------------- | ---------------------------------------------------------------------------------------------------------------- | ------------- |
-| `npm`          | Run `npm` inside the UI codebase.                                                                                | web container |
-| `site-install` | Install Drupal site.                                                                                             | web container |
-| `ui`           | Run the UI app's dev server.<br />`--install` `-i`: runs `npm install`<br />`--build` `-b`: runs `npm run build` | web container |
-| `clone-repo`   | Clone the Canvas module's repository                                                                             | host          |
+| Command                   | Description                                                                                                                                                             |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npm`                     | Run `npm` inside the UI codebase.                                                                                                                                       |
+| `ui`                      | Start the UI app's dev server.<br /><br />`--install` `-i`: runs `npm install`<br />`--build` `-b`: runs `npm run build`                                                |
+| `cy`,<br />`cypress`      | Open Cypress in end-to-end testing mode, accessible via VNC at `https://canvas.ddev.site:6081/vnc.html`.<br /><br />`--component` `-c`: opens in component testing mode |
+| `si`,<br />`site-install` | Install Drupal site.                                                                                                                                                    |
+| `clone-repo`              | Clone the Canvas module's repository. (Runs on the host.)                                                                                                               |
 
 You can also refer to the output of `ddev | grep "Drupal Canvas"`.
 

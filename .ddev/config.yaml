@@ -16,9 +16,49 @@ working_dir:
   web: "/var/www/html/web/modules/contrib/canvas"
 nodejs_version: "20"
 web_environment:
+  # Base URL for Cypress.
+  # See `installCommand()` in tests/support/commands.js.
+  - BASE_URL=https://localhost
+  - CYPRESS_CACHE_FOLDER=/var/www/html/.cache/cypress
+  - DISPLAY=:0
   - VITE_SERVER_ORIGIN=https://${DDEV_HOSTNAME}:5174
+webimage_extra_packages:
+  # Add system dependencies for Cypress.
+  # See https://docs.cypress.io/guides/getting-started/installing-cypress#UbuntuDebian.
+  - libgtk2.0-0
+  - libgtk-3-0
+  - libgbm-dev
+  - libnotify-dev
+  - libnss3
+  - libxss1
+  - libasound2
+  - libxtst6
+  - xauth
+  - xvfb
+  # Browser for Cypress to test against.
+  - chromium
+  # Packages for setting up noVNC to watch Cypress tests.
+  - novnc
+  - x11vnc
+web_extra_daemons:
+  - name: Xvfb
+    command: Xvfb :0 -screen 0 1920x1280x16
+    directory: /var/www/html
+  - name: x11vnc
+    command: x11vnc -display :0 -forever -nopw
+    directory: /var/www/html
+  # Make noVNC available at https://drupal-cms-dev.ddev.site:6081/vnc.html
+  - name: novnc
+    command:
+      /usr/share/novnc/utils/novnc_proxy --web /usr/share/novnc --vnc
+      localhost:5900
+    directory: /usr/share/novnc
 web_extra_exposed_ports:
   - name: vite-dev-server
     container_port: 5173
     http_port: 5173
     https_port: 5174
+  - name: novnc
+    container_port: 6080
+    http_port: 6080
+    https_port: 6081
