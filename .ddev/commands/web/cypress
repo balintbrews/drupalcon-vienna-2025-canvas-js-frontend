@@ -42,6 +42,12 @@ if ! npm run cy:verify >/dev/null 2>&1; then
     echo "Installing Cypress binary…"
     npx cypress install
 fi
+# Create a config file to dismiss the initial welcome message.
+CYPRESS_CONFIG_DIR="$HOME/.config/Cypress/cy/production/projects/__global__"
+if [ ! -f "$CYPRESS_CONFIG_DIR/state.json" ]; then
+    mkdir -p $CYPRESS_CONFIG_DIR
+    echo "{\"majorVersionWelcomeDismissed\": {\"13\": $(date +%s)}}" > $CYPRESS_CONFIG_DIR/state.json
+fi
 
 # Run Cypress in open mode
 echo "Starting Cypress…"
