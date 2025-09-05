@@ -21,6 +21,7 @@ ddev launch
 
 | Command        | Description                                                                                                      | Environment   |
 | -------------- | ---------------------------------------------------------------------------------------------------------------- | ------------- |
+| `npm`          | Run `npm` inside the UI codebase.                                                                                | web container |
 | `site-install` | Install Drupal site.                                                                                             | web container |
 | `ui`           | Run the UI app's dev server.<br />`--install` `-i`: runs `npm install`<br />`--build` `-b`: runs `npm run build` | web container |
 | `clone-repo`   | Clone the Canvas module's repository                                                                             | host          |

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+## Description: Drupal Canvas: Run `npm` inside the UI codebase.
+## Usage: npm [arguments]
+## Example: "ddev npm install"
+## ExecRaw: true
+
+cd "$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas/ui" || exit
+
+npm "$@"
