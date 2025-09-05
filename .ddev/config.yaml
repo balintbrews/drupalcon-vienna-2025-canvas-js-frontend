@@ -16,15 +16,17 @@ working_dir:
   web: "/var/www/html/web/modules/contrib/canvas"
 nodejs_version: "20"
 web_environment:
-  # Base URL for Cypress.
-  # See `installCommand()` in tests/support/commands.js.
-  - BASE_URL=https://localhost
+  # Base URL for Cypress
+  # See `installCommand()` in tests/support/commands.js
+  - BASE_URL=http://localhost
   - CYPRESS_CACHE_FOLDER=/var/www/html/.cache/cypress
   - DISPLAY=:0
+  - SIMPLETEST_BASE_URL=$DDEV_PRIMARY_URL
+  - SIMPLETEST_DB=$DDEV_DATABASE_FAMILY://db:db@db/db
   - VITE_SERVER_ORIGIN=https://${DDEV_HOSTNAME}:5174
 webimage_extra_packages:
-  # Add system dependencies for Cypress.
-  # See https://docs.cypress.io/guides/getting-started/installing-cypress#UbuntuDebian.
+  # System dependencies for Cypress
+  # See https://docs.cypress.io/guides/getting-started/installing-cypress#UbuntuDebian
   - libgtk2.0-0
   - libgtk-3-0
   - libgbm-dev
@@ -35,14 +37,19 @@ webimage_extra_packages:
   - libxtst6
   - xauth
   - xvfb
-  # Browser for Cypress to test against.
+  # Browser for Cypress to test against
   - chromium
-  # Packages for setting up noVNC to watch Cypress tests.
+  # Packages for setting up noVNC to watch Cypress tests
   - novnc
   - x11vnc
+  # Lightweight window manager for full-screen applications
+  - fluxbox
 web_extra_daemons:
   - name: Xvfb
     command: Xvfb :0 -screen 0 1920x1280x16
+    directory: /var/www/html
+  - name: fluxbox
+    command: fluxbox -display :0
     directory: /var/www/html
   - name: x11vnc
     command: x11vnc -display :0 -forever -nopw

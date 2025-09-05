@@ -43,6 +43,7 @@
 /web/sites/example.settings.local.php
 /web/sites/example.sites.php
 /web/sites/simpletest
+/web/sites/sites.php
 
 node_modules
 .cache
