@@ -1,21 +1,32 @@
 #!/bin/bash
 
-## Description: Drupal Canvas: Run Cypress in open mode
+## Description: Drupal Canvas: Run Cypress in open mode or headless mode (when --spec is used)
 ## Aliases: cy
-## Usage: cypress [--component-testing-mode|-c]
-## Example: "ddev cypress", "ddev cy", "ddev cypress --component-testing-mode", or "ddev cy -c"
+## Usage: cypress [--component|-c] [--spec <spec>]
+## Example: "ddev cypress", "ddev cy", "ddev cypress --component", "ddev cy -c", "ddev cypress --spec cypress/e2e/example.cy.js"
 
 # Parse command line arguments.
 COMPONENT_TESTING_MODE_FLAG=false
+SPEC_FLAG=""
 while [[ $# -gt 0 ]]; do
     case $1 in
         --component|-c)
             COMPONENT_TESTING_MODE_FLAG=true
             shift
             ;;
+        --spec)
+            if [[ -n "$2" && "$2" != -* ]]; then
+                SPEC_FLAG="$2"
+                shift 2
+            else
+                echo "Error: --spec flag requires a value"
+                echo "Usage: cypress [--component|-c] [--spec <spec>]"
+                exit 1
+            fi
+            ;;
         *)
             echo "Unknown option: $1"
-            echo "Usage: cypress [--component-testing-mode|-c]"
+            echo "Usage: cypress [--component|-c] [--spec <spec>]"
             exit 1
             ;;
     esac
@@ -49,17 +60,32 @@ if [ ! -f "$CYPRESS_CONFIG_DIR/state.json" ]; then
     echo "{\"majorVersionWelcomeDismissed\": {\"13\": $(date +%s)}}" > $CYPRESS_CONFIG_DIR/state.json
 fi
 
-# Run Cypress in open mode
-echo "Starting Cypress…"
-echo
-echo "╔═══════════ OPEN IN YOUR BROWSER: ════════════════╗"
-echo "║                                                  ║"
-echo "║     https://canvas.ddev.site:6081/vnc.html       ║"
-echo "║                                                  ║"
-echo "╚══════════════════════════════════════════════════╝"
+# Prepare spec argument
+SPEC_ARG=""
+if [ -n "$SPEC_FLAG" ]; then
+    SPEC_ARG="--spec $SPEC_FLAG"
+fi
 
-if [ "$COMPONENT_TESTING_MODE_FLAG" = true ]; then
-    npm run cy:open -- --browser chromium --component
+# Run Cypress - use headless mode (cy:run) when --spec is provided
+if [ -n "$SPEC_FLAG" ]; then
+    echo "Starting Cypress in headless mode (--spec provided)…"
+    if [ "$COMPONENT_TESTING_MODE_FLAG" = true ]; then
+        npm run cy:run -- --browser chromium --component $SPEC_ARG
+    else
+        npm run cy:run -- --browser chromium --e2e $SPEC_ARG
+    fi
 else
-    npm run cy:open -- --browser chromium --e2e
+    echo "Starting Cypress…"
+    echo
+    echo "╔═══════════ OPEN IN YOUR BROWSER: ════════════════╗"
+    echo "║                                                  ║"
+    echo "║     https://canvas.ddev.site:6081/vnc.html       ║"
+    echo "║                                                  ║"
+    echo "╚══════════════════════════════════════════════════╝"
+    
+    if [ "$COMPONENT_TESTING_MODE_FLAG" = true ]; then
+        npm run cy:open -- --browser chromium --component
+    else
+        npm run cy:open -- --browser chromium --e2e
+    fi
 fi

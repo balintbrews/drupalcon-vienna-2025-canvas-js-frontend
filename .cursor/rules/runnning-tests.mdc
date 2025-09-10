@@ -1,0 +1,84 @@
+---
+description: Guidelines for running automated tests to verify code changes
+alwaysApply: true
+---
+
+# Running automated tests to verify your work
+
+The following instructions will refer to different parts of the codebase. See
+[`project.mdc`](mdc:.cursor/rules/project.mdc) for details on the codebase
+structure.
+
+When it comes to running tests, you can ignore what's described in
+[`project.mdc`](mdc:.cursor/rules/project.mdc) as "Root". There are no tests to
+run there. The other parts listed there are relevant.
+
+Whenever you make changes, identify which part of the project you are in, and
+run the relevant tests according to the followings.
+
+## UI: `web/modules/contrib/canvas/ui`
+
+### Vitest
+
+Always see if there are tests written in Vitest to verify your changes. Most of
+the Vitest tests are co-located with the implementation.
+
+Look for files that end with `.test.ts` or `.test.tsx`. These are Vitest files.
+Always run the relevant ones for your changes.
+
+E.g. if you updated the file `src/features/code-editor/hooks/useCodeEditor.ts`,
+see if there is a file named
+`src/features/code-editor/hooks/useCodeEditor.test.ts`. If found, run the tests
+as follows:
+
+```
+ddev npm run test -- [path]
+```
+
+Pass the path to the test file relative to the UI folder. So, e.g.,
+`web/modules/contrib/canvas/ui/src/features/code-editor/hooks/useCodeEditor.test.tsx`
+should be passed as `src/features/code-editor/hooks/useCodeEditor.test.tsx`.
+E.g.:
+
+```
+ddev npm run test -- src/features/code-editor/hooks/useCodeEditor.test.tsx
+```
+
+When you're done with specific changes, and all the individual tests are
+passing, always run the entire Vitest test suite:
+
+```
+ddev npm run test
+```
+
+### Cypress component tests
+
+Certain features in the UI codebase are covered by Cypress component tests found
+in the directory `web/modules/contrib/canvas/ui/tests/unit`.
+
+Identify whenever your changes are covered by any of these tests. If so, run
+them as follows:
+
+```
+ddev cy --component --spec [path]
+```
+
+Pass the path to the test file relative to the UI folder. So, e.g.,
+`web/modules/contrib/canvas/ui/tests/unit/undo-redo-timeline.cy.js` should be
+passed as `tests/unit/undo-redo-timeline.cy.js`. E.g.:
+
+```
+ddev cy --component --spec tests/unit/undo-redo-timeline.cy.js
+```
+
+Never run the entire Cypress component test suite. It would take too long, so
+it's not sufficient for quick feedback loops. I'll make sure to run the Cypress
+component test suite myself whenever I see fit, and it will also be run on CI.
+
+## Backend: `web/modules/contrib/canvas`
+
+Instructions to be added. In the meantime, do not run tests, or ask.
+
+## CLI: `web/modules/contrib/canvas/cli`
+
+Instructions to be added. In the meantime, do not run tests, or ask.
