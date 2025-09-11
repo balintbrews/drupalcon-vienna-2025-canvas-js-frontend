@@ -1,0 +1,71 @@
+#!/bin/bash
+
+## Description: Drupal Canvas: Run Playwright tests in UI mode or headless mode (when --spec is used)
+## Usage: playwright [--spec <spec>]
+## Example: "ddev playwright", "ddev playwright --spec tests/src/Playwright/example.spec.ts"
+
+# Parse command line arguments.
+SPEC_FLAG=""
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --spec)
+            if [[ -n "$2" && "$2" != -* ]]; then
+                SPEC_FLAG="$2"
+                shift 2
+            else
+                echo "Error: --spec flag requires a value"
+                echo "Usage: playwright [--spec <spec>]"
+                exit 1
+            fi
+            ;;
+        *)
+            echo "Unknown option: $1"
+            echo "Usage: playwright [--spec <spec>]"
+            exit 1
+            ;;
+    esac
+done
+
+cd "$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas" || exit
+
+
+# Verify that the Playwright package (npm dependency) is installed.
+# It is supposed to be installed as a root dependency by `npm install`.
+if [ ! -f "node_modules/.bin/playwright" ]; then
+    echo
+    echo "Error: Playwright package not found."
+    echo
+    echo "To fix this, run:"
+    echo "  ddev n --canvas-dir=root install"
+    echo
+    echo "This will install dependencies in the root directory."
+    echo
+    exit 1
+fi
+
+PLAYWRIGHT_INSTALLED_MARKER="$HOME/.playwright_deps_installed"
+if [ ! -f "$PLAYWRIGHT_INSTALLED_MARKER" ]; then
+    npx playwright install --with-deps
+    touch "$PLAYWRIGHT_INSTALLED_MARKER"
+fi
+
+# Prepare spec argument.
+SPEC_ARG=""
+if [ -n "$SPEC_FLAG" ]; then
+    SPEC_ARG="$SPEC_FLAG"
+fi
+
+# Run Playwright - use headless mode when --spec is provided
+if [ -n "$SPEC_FLAG" ]; then
+    echo "Starting Playwright in headless mode (--spec provided)…"
+    npx playwright test $SPEC_ARG
+else
+    echo "Starting Playwright…"
+    echo
+    echo "╔═══════════ OPEN IN YOUR BROWSER: ════════════════╗"
+    echo "║                                                  ║"
+    echo "║     https://canvas.ddev.site:6081/vnc.html       ║"
+    echo "║                                                  ║"
+    echo "╚══════════════════════════════════════════════════╝"
+    npx playwright test --ui
+fi

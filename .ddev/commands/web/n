@@ -1,0 +1,64 @@
+#!/bin/bash
+
+## Description: Drupal Canvas: Run `npm` in specified project directory.
+## Aliases: n
+## Usage: n [--canvas-dir=<dir>] [npm arguments]
+## Example: "ddev n --canvas-dir=cli install" or "ddev n install" (defaults to ui)
+## ExecRaw: true
+
+# Default canvas directory
+CANVAS_DIR="ui"
+
+# Parse --canvas-dir argument
+for arg in "$@"; do
+  case $arg in
+    --canvas-dir=*)
+      CANVAS_DIR="${arg#*=}"
+      shift # Remove this argument from $@
+      ;;
+    *)
+      # Keep other arguments
+      ;;
+  esac
+done
+
+# Remove --canvas-dir from arguments to pass to npm
+NPM_ARGS=()
+for arg in "$@"; do
+  case $arg in
+    --canvas-dir=*)
+      # Skip this argument
+      ;;
+    *)
+      NPM_ARGS+=("$arg")
+      ;;
+  esac
+done
+
+# Map canvas directory names to actual paths
+case $CANVAS_DIR in
+  "root")
+    TARGET_DIR="$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas"
+    ;;
+  "ui")
+    TARGET_DIR="$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas/ui"
+    ;;
+  "astro")
+    TARGET_DIR="$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas/ui/lib/astro-hydration"
+    ;;
+  "cli")
+    TARGET_DIR="$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas/cli"
+    ;;
+  "docs")
+    TARGET_DIR="$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas/docs/user"
+    ;;
+  *)
+    echo "Error: Unknown canvas directory '$CANVAS_DIR'"
+    echo "Available directories: root, ui, astro, cli, docs"
+    exit 1
+    ;;
+esac
+
+echo "Running npm in canvas${TARGET_DIR#$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas}…"
+cd "$TARGET_DIR"
+npm "${NPM_ARGS[@]}"

@@ -12,8 +12,6 @@ database:
 use_dns_when_possible: true
 composer_version: "2"
 corepack_enable: true
-working_dir:
-  web: "/var/www/html/web/modules/contrib/canvas"
 nodejs_version: "20"
 web_environment:
   # Base URL for Cypress
@@ -21,6 +19,8 @@ web_environment:
   - BASE_URL=http://localhost
   - CYPRESS_CACHE_FOLDER=/var/www/html/.cache/cypress
   - DISPLAY=:0
+  - DRUPAL_TEST_BASE_URL=http://localhost
+  - DRUPAL_TEST_DB_URL=$DDEV_DATABASE_FAMILY://db:db@db/db
   - SIMPLETEST_BASE_URL=$DDEV_PRIMARY_URL
   - SIMPLETEST_DB=$DDEV_DATABASE_FAMILY://db:db@db/db
   - VITE_SERVER_ORIGIN=https://${DDEV_HOSTNAME}:5174
@@ -39,7 +39,7 @@ webimage_extra_packages:
   - xvfb
   # Browser for Cypress to test against
   - chromium
-  # Packages for setting up noVNC to watch Cypress tests
+  # Libraries for setting up noVNC to watch Cypress tests
   - novnc
   - x11vnc
   # Lightweight window manager for full-screen applications

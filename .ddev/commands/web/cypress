@@ -43,7 +43,7 @@ if ! npm run cy:verify >/dev/null 2>&1; then
         echo "Error: Cypress package not found."
         echo
         echo "To fix this, run:"
-        echo "  ddev npm install"
+        echo "  ddev n install"
         echo
         echo "This will install dependencies for the UI."
         echo

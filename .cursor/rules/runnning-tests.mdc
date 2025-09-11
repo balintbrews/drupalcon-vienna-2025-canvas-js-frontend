@@ -32,7 +32,7 @@ see if there is a file named
 as follows:
 
 ```
-ddev npm run test -- [path]
+ddev n run test -- [path]
 ```
 
 Pass the path to the test file relative to the UI folder. So, e.g.,
@@ -41,14 +41,14 @@ should be passed as `src/features/code-editor/hooks/useCodeEditor.test.tsx`.
 E.g.:
 
 ```
-ddev npm run test -- src/features/code-editor/hooks/useCodeEditor.test.tsx
+ddev n run test -- src/features/code-editor/hooks/useCodeEditor.test.tsx
 ```
 
 When you're done with specific changes, and all the individual tests are
 passing, always run the entire Vitest test suite:
 
 ```
-ddev npm run test
+ddev n run test
 ```
 
 ### Cypress component tests
@@ -71,9 +71,28 @@ passed as `tests/unit/undo-redo-timeline.cy.js`. E.g.:
 ddev cy --component --spec tests/unit/undo-redo-timeline.cy.js
 ```
 
-Never run the entire Cypress component test suite. It would take too long, so
-it's not sufficient for quick feedback loops. I'll make sure to run the Cypress
-component test suite myself whenever I see fit, and it will also be run on CI.
+Never run the entire Cypress component test suite.
+
+### Cypress end-to-end tests
+
+Never run Cypress end-to-end tests.
+
+## Playwright end-to-end tests: `web/modules/contrib/canvas/tests`
+
+The project has end-to-end tests written in Playwright. Identify whenever your
+changes are covered by any of these tests. If so, run them as follows:
+
+```
+ddev playwright --spec [path]
+```
+
+Pass the path to the test file relative to the UI folder. So, e.g.,
+`web/modules/contrib/canvas/tests/src/Playwright/navigationUndoRedo.spec.ts`
+should be passed as `tests/src/Playwright/navigationUndoRedo.spec.ts`. E.g.:
+
+```
+ddev playwright --spec tests/src/Playwright/navigationUndoRedo.spec.ts
+```
 
 ## Backend: `web/modules/contrib/canvas`
 
