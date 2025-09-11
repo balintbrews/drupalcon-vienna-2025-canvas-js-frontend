@@ -1,9 +1,12 @@
 ---
-description: Writing standards for documentation and UI copy
+description: Writing standards for documentation, code comments, and UI copy
 alwaysApply: true
 ---
 
 # Content style guide
+
+Follow this style guide when writing documentation, Cursor rules, inline code
+comments, and UI copy.
 
 - Be concise and avoid verbose phrasing.
 - Use sentence casing for all titles, headings, button labels, documentation,
