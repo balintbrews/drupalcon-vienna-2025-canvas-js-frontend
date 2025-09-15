@@ -2,13 +2,21 @@
 
 ## Description: Drupal Canvas: Install Drupal site.
 ## Aliases: si
-## Usage: site-install
-## Example: "ddev site-install"
+## Usage: site-install [--no-vite]
+## Example: "ddev site-install" or "ddev site-install --no-vite"
 ## ExecRaw: true
 
 set -e
 
 cd "$DDEV_COMPOSER_ROOT"
+
+# Parse command line arguments.
+NO_VITE=false
+for arg in "$@"; do
+    if [[ "$arg" == "--no-vite" ]]; then
+        NO_VITE=true
+    fi
+done
 
 # Install Drupal.
 drush site-install \
@@ -18,11 +26,12 @@ drush site-install \
     --yes
 
 # Enable modules.
-drush pm:enable --yes \
-    canvas \
-    canvas_vite \
-    canvas_ai \
-    ai_provider_openai
+MODULES="canvas canvas_ai ai_provider_openai"
+if [[ "$NO_VITE" == "false" ]]; then
+    MODULES="$MODULES canvas_vite"
+fi
+
+drush pm:enable --yes $MODULES
 
 # Create a canvas_page entity.
 drush php:eval "\Drupal::service('entity_type.manager')->getStorage('canvas_page')->create(['title' => 'Home', 'path' => ['alias' => '/home']])->save();"
