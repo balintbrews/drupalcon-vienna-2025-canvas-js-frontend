@@ -8,7 +8,8 @@
 
 set -e
 
-cd "$DDEV_COMPOSER_ROOT"
+cd "$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas"
+CANVAS_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD)
 
 # Parse command line arguments.
 NO_VITE=false
@@ -21,7 +22,7 @@ done
 # Install Drupal.
 drush site-install \
     --account-pass=admin \
-    --site-name="Brewing Drupal Canvas" \
+    --site-name="Canvas [$CANVAS_BRANCH]" \
     --account-pass=admin \
     --yes
 
@@ -34,7 +35,7 @@ fi
 drush pm:enable --yes $MODULES
 
 # Create a canvas_page entity.
-drush php:eval "\Drupal::service('entity_type.manager')->getStorage('canvas_page')->create(['title' => 'Home', 'path' => ['alias' => '/home']])->save();"
+drush php:eval "\Drupal::service('entity_type.manager')->getStorage('canvas_page')->create(['title' => 'Canvas [$CANVAS_BRANCH]', 'path' => ['alias' => '/home']])->save();"
 
 # Configure the OpenAI AI provider for Canvas AI.
 drush key-save openai_api_key --label="OpenAI API key" --key-type=authentication --key-provider=env --key-provider-settings='{"env_variable": "OPENAI_API_KEY"}'
