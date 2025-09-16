@@ -6,7 +6,6 @@
 
 /drush/Commands/contrib/
 
-/recipes/
 /vendor/
 
 /web/.csslintrc

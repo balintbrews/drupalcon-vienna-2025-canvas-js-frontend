@@ -37,7 +37,11 @@ drush pm:enable --yes $MODULES
 # Create a canvas_page entity.
 drush php:eval "\Drupal::service('entity_type.manager')->getStorage('canvas_page')->create(['title' => 'Canvas [$CANVAS_BRANCH]', 'path' => ['alias' => '/home']])->save();"
 
+# Apply recipes.
+drush recipe ../recipes/canvas_dev_code_components
+
 # Configure the OpenAI AI provider for Canvas AI.
+# @todo Convert this to a recipe.
 drush key-save openai_api_key --label="OpenAI API key" --key-type=authentication --key-provider=env --key-provider-settings='{"env_variable": "OPENAI_API_KEY"}'
 drush config:set --yes ai_provider_openai.settings api_key openai_api_key
 drush config:set --yes --input-format=yaml ai.settings default_providers.chat "{provider_id: openai, model_id: gpt-4o}"
