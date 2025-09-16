@@ -27,7 +27,7 @@ drush site-install \
     --yes
 
 # Enable modules.
-MODULES="canvas canvas_ai ai_provider_openai"
+MODULES="canvas canvas_dev_mode canvas_ai ai_provider_openai"
 if [[ "$NO_VITE" == "false" ]]; then
     MODULES="$MODULES canvas_vite"
 fi
