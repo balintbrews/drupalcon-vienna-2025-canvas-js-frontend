@@ -1,0 +1,12 @@
+name: "Canvas Dev OAuth"
+install:
+  - canvas
+  - canvas_oauth
+  - simple_oauth
+  - consumers
+config:
+  actions:
+    simple_oauth.settings:
+      simpleConfigUpdate:
+        public_key: sites/default/files/public.key
+        private_key: sites/default/files/private.key

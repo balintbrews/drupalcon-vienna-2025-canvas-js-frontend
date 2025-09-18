@@ -1,5 +1,4 @@
 web
-recipes
 .vscode
 .ddev/.ddev-docker-*.yaml
 .ddev/mutagen
