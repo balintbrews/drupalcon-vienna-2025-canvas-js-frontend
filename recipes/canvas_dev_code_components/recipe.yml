@@ -2,8 +2,6 @@ name: "Canvas Dev Code Components"
 install:
   - canvas
 config:
-  import:
-    canvas_oauth: "*"
   actions:
     canvas.js_component.card_1:
       enable: []

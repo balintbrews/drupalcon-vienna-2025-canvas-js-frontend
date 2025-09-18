@@ -5,6 +5,8 @@ install:
   - simple_oauth
   - consumers
 config:
+  import:
+    canvas_oauth: "*"
   actions:
     simple_oauth.settings:
       simpleConfigUpdate:
