@@ -45,6 +45,14 @@ drush recipe ../recipes/canvas_dev_oauth
 
 # Generate OAuth keys.
 drush simple-oauth:generate-keys /var/www/html/web/sites/default/files
+# Resave the consumer entity (OAuth client) to update the secret, which gets
+# encrypted using the generated keys.
+drush php-eval "
+    \$consumer = \Drupal::service('entity_type.manager')->getStorage('consumer')->loadByProperties(['client_id' => 'cli']);
+    \$entity = reset(\$consumer);
+    \$entity->set('secret', 'secret');
+    \$entity->save();
+"
 
 # Configure the OpenAI AI provider for Canvas AI.
 # @todo Convert this to a recipe.

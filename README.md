@@ -21,7 +21,7 @@ development work, with workflows and tools I prefer.
 | `ui`                    | Start the UI app's dev server.<br><br>`--install` `-i`: runs `npm install` before<br>`--build` `-b`: runs `npm run build` before                                                                                                 |
 | `playwright`            | Run Playwright in UI mode.<br>(Accessible via VNC at `https://canvas.ddev.site:6081/vnc.html`)<br><br>`--spec <path-to-spec>`: runs a spec in headless mode                                                                      |
 | `cy`,<br>`cypress`      | Run the Cypress UI in end-to-end testing mode<br>(Accessible via VNC at `https://canvas.ddev.site:6081/vnc.html`)<br><br>`--spec <path-to-spec>`: runs a spec in headless mode<br>`--component` `-c`: use component testing mode |
-| `si`,<br>`site-install` | Install Drupal site, install and configure modules: Canvas, Canvas AI.<br><br>`--no-vite`: skips installing Canvas Vite                                                                                                          |
+| `si`,<br>`site-install` | Install Drupal site, install and configure modules: Canvas, Canvas AI, Canvas OAuth.<br><br>`--no-vite`: skips installing Canvas Vite                                                                                            |
 | `clone-repo`            | Clone the Canvas module's repository. (Runs on the host.)                                                                                                                                                                        |
 
 See the [list of commands](https://docs.ddev.com/en/stable/users/usage/cli/)
