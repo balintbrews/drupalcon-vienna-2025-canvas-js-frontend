@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9191c0b4660c53587c5b8ad8dc7da7c1",
+    "content-hash": "ce91bb8204adbca2ecf4f6549514b447",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2384,7 +2384,7 @@
             "dist": {
                 "type": "path",
                 "url": "web/modules/contrib/canvas",
-                "reference": "581da9f6cfcc8fd44b505d84adc0a67fc0080b5d"
+                "reference": "1d6c1f7fc57b78e4ef0928ba8940e804e572ff76"
             },
             "require": {
                 "drupal/core": "^11.2",
