@@ -73,7 +73,8 @@
         "web-root": "web/"
       },
       "file-mapping": {
-        "[web-root]/sites/development.services.yml": false
+        "[web-root]/sites/development.services.yml": false,
+        "[project-root]/recipes/README.txt": false
       }
     },
     "installer-paths": {
