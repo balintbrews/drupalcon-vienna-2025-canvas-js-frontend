@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce91bb8204adbca2ecf4f6549514b447",
+    "content-hash": "f1e49d85b15f9681e818de3bf3f1dfb0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2309,6 +2309,55 @@
             ],
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_agents"
+            }
+        },
+        {
+            "name": "drupal/ai_agents_test",
+            "version": "1.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/ai_agents_test.git",
+                "reference": "1.0.0-alpha3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ai_agents_test-1.0.0-alpha3.zip",
+                "reference": "1.0.0-alpha3",
+                "shasum": "63eceb4c7876e4751ce8128da2813e876728cfd9"
+            },
+            "require": {
+                "drupal/ai_agents": "*",
+                "drupal/core": "^10.3 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-alpha3",
+                    "datestamp": "1753855153",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "marcus_johansson",
+                    "homepage": "https://www.drupal.org/user/385947"
+                },
+                {
+                    "name": "yautja_cetanu",
+                    "homepage": "https://www.drupal.org/user/626050"
+                }
+            ],
+            "description": "The AI Agents Test will create a content entity that can be triggered as a test in the GUI or exported as a config test.",
+            "homepage": "https://www.drupal.org/project/ai_agents_test",
+            "support": {
+                "source": "https://git.drupalcode.org/project/ai_agents_test"
             }
         },
         {
@@ -14239,6 +14288,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/ai_agents_test": 15,
         "drupal/canvas": 20,
         "drupal/default_content": 15
     },
