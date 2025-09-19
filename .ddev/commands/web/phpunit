@@ -1,0 +1,13 @@
+#!/bin/bash
+
+## Description: Drupal Canvas: Run PHPUnit tests in the Canvas module's codebase.
+## Usage: phpunit [path]
+## Example: "ddev phpunit" or "ddev phpunit modules/canvas_oauth"
+## ExecRaw: true
+
+cd "$DDEV_COMPOSER_ROOT/$DDEV_DOCROOT" || exit 1
+
+../vendor/bin/phpunit \
+  -c core/phpunit.xml.dist \
+  modules/contrib/canvas/"$*"
+

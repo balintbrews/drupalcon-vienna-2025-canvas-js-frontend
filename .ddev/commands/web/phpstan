@@ -1,0 +1,14 @@
+#!/bin/bash
+
+## Description: Drupal Canvas: Run PHPStan in the Canvas module's codebase.
+## Usage: phpstan
+## Example: "ddev phpstan"
+## ExecRaw: true
+
+cd "$DDEV_COMPOSER_ROOT/$DDEV_DOCROOT" || exit 1
+
+../vendor/bin/phpstan \
+  analyze \
+  --configuration=modules/contrib/canvas/phpstan.neon \
+  --memory-limit=256M \
+  modules/contrib/canvas

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+## Description: Drupal Canvas: Run PHP Code Beautifier and Fixer in the Canvas module's codebase.
+## Usage: phpcs [path]
+## Example: "ddev phpcs" or "ddev phpcs modules/canvas_oauth"
+## ExecRaw: true
+
+cd "$DDEV_COMPOSER_ROOT/$DDEV_DOCROOT" || exit 1
+
+../vendor/bin/phpcbf \
+  -s \
+  --standard=modules/contrib/canvas/phpcs.xml \
+  --basepath=modules/contrib/canvas \
+  modules/contrib/canvas/"$1"
