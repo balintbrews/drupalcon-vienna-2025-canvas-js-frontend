@@ -41,6 +41,7 @@ drush php:eval "\Drupal::service('entity_type.manager')->getStorage('canvas_page
 
 # Apply recipes.
 drush recipe ../recipes/canvas_dev_code_components
+drush recipe ../recipes/canvas_dev_stark
 drush recipe ../recipes/canvas_dev_oauth
 
 # Generate OAuth keys.

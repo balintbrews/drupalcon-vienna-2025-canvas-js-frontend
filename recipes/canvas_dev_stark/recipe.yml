@@ -1,0 +1,9 @@
+name: "Canvas Dev Stark"
+install:
+  - canvas
+  - stark
+config:
+  actions:
+    system.theme:
+      simpleConfigUpdate:
+        default: stark
