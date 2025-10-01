@@ -18,4 +18,6 @@ $settings['entity_update_backup'] = TRUE;
 $settings['state_cache'] = TRUE;
 $settings['migrate_node_migrate_type_classic'] = FALSE;
 
+$settings["extension_discovery_scan_tests"] = TRUE;
+
 include __DIR__ . '/settings.ddev.php';
