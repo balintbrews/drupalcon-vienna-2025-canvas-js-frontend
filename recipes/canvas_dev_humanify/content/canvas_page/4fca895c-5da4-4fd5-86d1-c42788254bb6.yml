@@ -41,7 +41,9 @@ default:
         what they\u0027re doing. We deliver the work, and you can tell your
         customers and investors that it was done with AI."},"buttonLabel":"Get
         started
-        today","buttonLink":{"uri":"page\/1","options":[]},"image":{"target_id":"1"},"darkVariant":true,"backgroundColor":"crust"}'
+        today","buttonLink":{"uri":"page\/1","options":[]},"image":{"sourceType":"default-relative-url","value":{"src":"https:\/\/images.unsplash.com\/photo-1484959014842-cd1d967a39cf?ixlib=rb-1.2.1\u0026ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8\u0026auto=format\u0026fit=crop\u0026w=1770\u0026q=80","alt":"Woman
+        playing the
+        violin","width":1770,"height":1180},"jsonSchema":{"type":"object","properties":{"src":{"type":"string","contentMediaType":"image\/*","format":"uri-reference","x-allowed-schemes":["http","https"]},"alt":{"type":"string"},"width":{"type":"integer"},"height":{"type":"integer"}},"required":["src"]},"componentId":"js.hero"},"darkVariant":true,"backgroundColor":"crust"}'
     - uuid: ecaa0198-64b4-49d8-8ca9-c7cd600a955a
       component_id: js.section
       component_version: 0ecf19d323002d86
