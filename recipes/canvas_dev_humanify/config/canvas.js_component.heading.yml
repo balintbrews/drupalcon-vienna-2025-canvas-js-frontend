@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies: {}
+machineName: heading
+name: Heading
+required:
+  - text
+props:
+  text:
+    title: Text
+    type: string
+    examples:
+      - "Believe it or not, this copy was written by a human."
+      - "Our team is here to help your AI agents look good."
+      - "Our pricing is based on the value you get."
+slots: {}
+js:
+  original: |
+    const Heading = ({ text }) => {
+      return (
+        <h2 className="text-text mx-auto max-w-screen-lg text-balance text-center text-2xl font-extrabold md:text-3xl">
+          {text}
+        </h2>
+      );
+    };
+
+    export default Heading;
+  compiled: |
+    import { jsx as _jsx } from "react/jsx-runtime";
+    const Heading = ({ text })=>{
+        return /*#__PURE__*/ _jsx("h2", {
+            className: "text-text mx-auto max-w-screen-lg text-balance text-center text-2xl font-extrabold md:text-3xl",
+            children: text
+        });
+    };
+    export default Heading;
+css:
+  original: ""
+  compiled: ""
+dataDependencies: {}

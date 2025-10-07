@@ -1,0 +1,129 @@
+langcode: en
+status: true
+dependencies: {}
+machineName: header
+name: Header
+required:
+  - backgroundColor
+props:
+  darkVariant:
+    title: "Dark variant"
+    type: boolean
+    examples:
+      - true
+  backgroundColor:
+    title: "Background color"
+    type: string
+    examples:
+      - crust
+    enum:
+      - base
+      - mantle
+      - crust
+    "meta:enum":
+      base: Base
+      mantle: Mantle
+      crust: Crust
+slots:
+  branding:
+    title: Branding
+  navigation:
+    title: Navigation
+js:
+  original: |
+    import { cn } from "@/lib/utils";
+    import { cva } from "class-variance-authority";
+
+    const Header = ({ branding, navigation, darkVariant, backgroundColor }) => {
+      const headerVariants = cva("", {
+        variants: {
+          colorScheme: {
+            light: "",
+            dark: "dark",
+          },
+          backgroundColor: {
+            base: "bg-base",
+            mantle: "bg-mantle",
+            crust: "bg-crust",
+          },
+        },
+        defaultVariants: {
+          colorScheme: "light",
+          backgroundColor: "base",
+        },
+      });
+      return (
+        <header
+          className={headerVariants({
+            colorScheme: darkVariant ? "dark" : "light",
+            backgroundColor,
+          })}
+        >
+          <div className="min-w-sm mx-auto flex h-24 max-w-screen-xl items-center justify-between gap-x-12 px-4 sm:px-12 md:h-32 lg:gap-x-16 lg:px-16">
+            <div
+              className={cn(
+                "h-12 flex-shrink-0 items-center justify-start md:h-16",
+                branding?.props?.value?.includes(
+                  "canvas--slot-empty-placeholder",
+                ) && "min-w-32",
+              )}
+            >
+              {branding}
+            </div>
+            <div className="flex h-12 flex-grow items-center justify-end md:h-16">
+              {navigation}
+            </div>
+          </div>
+        </header>
+      );
+    };
+
+    export default Header;
+  compiled: |
+    import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+    import { cn } from "@/lib/utils";
+    import { cva } from "class-variance-authority";
+    const Header = ({ branding, navigation, darkVariant, backgroundColor })=>{
+        var _branding_props_value, _branding_props;
+        const headerVariants = cva("", {
+            variants: {
+                colorScheme: {
+                    light: "",
+                    dark: "dark"
+                },
+                backgroundColor: {
+                    base: "bg-base",
+                    mantle: "bg-mantle",
+                    crust: "bg-crust"
+                }
+            },
+            defaultVariants: {
+                colorScheme: "light",
+                backgroundColor: "base"
+            }
+        });
+        return /*#__PURE__*/ _jsx("header", {
+            className: headerVariants({
+                colorScheme: darkVariant ? "dark" : "light",
+                backgroundColor
+            }),
+            children: /*#__PURE__*/ _jsxs("div", {
+                className: "min-w-sm mx-auto flex h-24 max-w-screen-xl items-center justify-between gap-x-12 px-4 sm:px-12 md:h-32 lg:gap-x-16 lg:px-16",
+                children: [
+                    /*#__PURE__*/ _jsx("div", {
+                        className: cn("h-12 flex-shrink-0 items-center justify-start md:h-16", (branding === null || branding === void 0 ? void 0 : (_branding_props = branding.props) === null || _branding_props === void 0 ? void 0 : (_branding_props_value = _branding_props.value) === null || _branding_props_value === void 0 ? void 0 : _branding_props_value.includes("canvas--slot-empty-placeholder")) && "min-w-32"),
+                        children: branding
+                    }),
+                    /*#__PURE__*/ _jsx("div", {
+                        className: "flex h-12 flex-grow items-center justify-end md:h-16",
+                        children: navigation
+                    })
+                ]
+            })
+        });
+    };
+    export default Header;
+css:
+  original: ""
+  compiled: ""
+dataDependencies: {}

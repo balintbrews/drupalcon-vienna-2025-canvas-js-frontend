@@ -1,0 +1,110 @@
+langcode: en
+status: true
+dependencies: {}
+machineName: section
+name: Section
+required:
+  - backgroundColor
+props:
+  darkVariant:
+    title: "Dark variant"
+    type: boolean
+    examples:
+      - false
+      - false
+  backgroundColor:
+    title: "Background color"
+    type: string
+    examples:
+      - mantle
+      - crust
+    enum:
+      - base
+      - mantle
+      - crust
+    "meta:enum":
+      base: Base
+      mantle: Mantle
+      crust: Crust
+slots:
+  content:
+    title: Content
+js:
+  original: |
+    import { cn } from "@/lib/utils";
+    import { cva } from "class-variance-authority";
+
+    const Section = ({ content, darkVariant, backgroundColor = "base" }) => {
+      const sectionVariants = cva("", {
+        variants: {
+          colorScheme: {
+            light: "",
+            dark: "dark",
+          },
+          backgroundColor: {
+            base: "bg-base",
+            mantle: "bg-mantle",
+            crust: "bg-crust",
+          },
+        },
+        defaultVariants: {
+          colorScheme: "light",
+          backgroundColor: "base",
+        },
+      });
+
+      return (
+        <section
+          className={cn(
+            sectionVariants({
+              colorScheme: darkVariant ? "dark" : "light",
+              backgroundColor,
+            }),
+          )}
+        >
+          <div className="min-w-sm mx-auto flex max-w-screen-xl flex-col items-center gap-6 p-12 px-4 md:p-16 md:px-12 lg:gap-8 lg:px-16">
+            {content}
+          </div>
+        </section>
+      );
+    };
+
+    export default Section;
+  compiled: |
+    import { jsx as _jsx } from "react/jsx-runtime";
+    import { cn } from "@/lib/utils";
+    import { cva } from "class-variance-authority";
+    const Section = ({ content, darkVariant, backgroundColor = "base" })=>{
+        const sectionVariants = cva("", {
+            variants: {
+                colorScheme: {
+                    light: "",
+                    dark: "dark"
+                },
+                backgroundColor: {
+                    base: "bg-base",
+                    mantle: "bg-mantle",
+                    crust: "bg-crust"
+                }
+            },
+            defaultVariants: {
+                colorScheme: "light",
+                backgroundColor: "base"
+            }
+        });
+        return /*#__PURE__*/ _jsx("section", {
+            className: cn(sectionVariants({
+                colorScheme: darkVariant ? "dark" : "light",
+                backgroundColor
+            })),
+            children: /*#__PURE__*/ _jsx("div", {
+                className: "min-w-sm mx-auto flex max-w-screen-xl flex-col items-center gap-6 p-12 px-4 md:p-16 md:px-12 lg:gap-8 lg:px-16",
+                children: content
+            })
+        });
+    };
+    export default Section;
+css:
+  original: ""
+  compiled: ""
+dataDependencies: {}

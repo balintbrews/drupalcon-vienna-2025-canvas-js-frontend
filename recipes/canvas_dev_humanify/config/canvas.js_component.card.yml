@@ -1,0 +1,205 @@
+langcode: en
+status: true
+dependencies: {}
+machineName: card
+name: Card
+required:
+  - iconColor
+props:
+  iconNameFromLucide:
+    title: "Icon: Name from Lucide"
+    type: string
+    examples:
+      - layout-panel-top
+      - figma
+      - message-square-more
+      - radio-tower
+      - file-chart-column-increasing
+      - mail-question-mark
+  iconColor:
+    title: "Icon: Color"
+    type: string
+    examples:
+      - sapphire
+      - rosewater
+      - mauve
+      - yellow
+      - green
+      - pink
+    enum:
+      - rosewater
+      - flamingo
+      - pink
+      - mauve
+      - red
+      - maroon
+      - peach
+      - yellow
+      - green
+      - teal
+      - sky
+      - sapphire
+      - blue
+      - lavender
+    "meta:enum":
+      rosewater: Rosewater
+      flamingo: Flamingo
+      pink: Pink
+      mauve: Mauve
+      red: Red
+      maroon: Maroon
+      peach: Peach
+      yellow: Yellow
+      green: Green
+      teal: Teal
+      sky: Sky
+      sapphire: Sapphire
+      blue: Blue
+      lavender: Lavender
+  title:
+    title: Title
+    type: string
+    examples:
+      - "Website design"
+      - "Figma to code"
+      - "Marketing copy-writing"
+      - "Social media"
+      - "Analytics and reporting"
+      - "Summarizing emails"
+  description:
+    title: Description
+    type: string
+    examples:
+      - "Knowing where to take inspiration from and why can be useful."
+      - "Imagine code that people are not terrified to look at, let alone
+        maintain."
+      - "Sometimes it's advised not to sound like everyone else on the internet."
+      - "We'll give you a discount if we only have to deal with Bluesky."
+      - "Our single promise is that we'll never include emojis in our reports."
+      - "We don't actually do this, but we needed six things for this grid to
+        look nice."
+    contentMediaType: text/html
+    x-formatting-context: block
+slots: {}
+js:
+  original: |
+    import FormattedText from "@/lib/FormattedText";
+    import { cva } from "class-variance-authority";
+
+    const Card = ({ title, description, iconNameFromLucide, iconColor }) => {
+      const cardVariants = cva("size-8", {
+        variants: {
+          iconColor: {
+            text: "bg-text",
+            rosewater: "bg-rosewater",
+            flamingo: "bg-flamingo",
+            pink: "bg-pink",
+            mauve: "bg-mauve",
+            red: "bg-red",
+            maroon: "bg-maroon",
+            peach: "bg-peach",
+            yellow: "bg-yellow",
+            green: "bg-green",
+            teal: "bg-teal",
+            sky: "bg-sky",
+            sapphire: "bg-sapphire",
+            blue: "bg-blue",
+            lavender: "bg-lavender",
+          },
+        },
+        defaultVariants: {
+          iconColor: "teal",
+        },
+      });
+      return (
+        <div className="bg-surface-0 flex flex-col gap-3 rounded-lg p-6">
+          {iconNameFromLucide && (
+            <div
+              className={cardVariants({ iconColor })}
+              style={{
+                maskImage: `url(https://esm.sh/lucide-static@0.544.0/icons/${iconNameFromLucide}.svg)`,
+                maskSize: "contain",
+                maskRepeat: "no-repeat",
+                maskPosition: "center",
+                WebkitMaskImage: `url(https://esm.sh/lucide-static@0.544.0/icons/${iconNameFromLucide}.svg)`,
+                WebkitMaskSize: "contain",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskPosition: "center",
+              }}
+            />
+          )}
+          {title && <h3 className="text-text text-lg font-semibold">{title}</h3>}
+          {description && (
+            <FormattedText as="p" className="text-subtext-0">
+              {description}
+            </FormattedText>
+          )}
+        </div>
+      );
+    };
+
+    export default Card;
+  compiled: |
+    import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+    import FormattedText from "@/lib/FormattedText";
+    import { cva } from "class-variance-authority";
+    const Card = ({ title, description, iconNameFromLucide, iconColor })=>{
+        const cardVariants = cva("size-8", {
+            variants: {
+                iconColor: {
+                    text: "bg-text",
+                    rosewater: "bg-rosewater",
+                    flamingo: "bg-flamingo",
+                    pink: "bg-pink",
+                    mauve: "bg-mauve",
+                    red: "bg-red",
+                    maroon: "bg-maroon",
+                    peach: "bg-peach",
+                    yellow: "bg-yellow",
+                    green: "bg-green",
+                    teal: "bg-teal",
+                    sky: "bg-sky",
+                    sapphire: "bg-sapphire",
+                    blue: "bg-blue",
+                    lavender: "bg-lavender"
+                }
+            },
+            defaultVariants: {
+                iconColor: "teal"
+            }
+        });
+        return /*#__PURE__*/ _jsxs("div", {
+            className: "bg-surface-0 flex flex-col gap-3 rounded-lg p-6",
+            children: [
+                iconNameFromLucide && /*#__PURE__*/ _jsx("div", {
+                    className: cardVariants({
+                        iconColor
+                    }),
+                    style: {
+                        maskImage: `url(https://esm.sh/lucide-static@0.544.0/icons/${iconNameFromLucide}.svg)`,
+                        maskSize: "contain",
+                        maskRepeat: "no-repeat",
+                        maskPosition: "center",
+                        WebkitMaskImage: `url(https://esm.sh/lucide-static@0.544.0/icons/${iconNameFromLucide}.svg)`,
+                        WebkitMaskSize: "contain",
+                        WebkitMaskRepeat: "no-repeat",
+                        WebkitMaskPosition: "center"
+                    }
+                }),
+                title && /*#__PURE__*/ _jsx("h3", {
+                    className: "text-text text-lg font-semibold",
+                    children: title
+                }),
+                description && /*#__PURE__*/ _jsx(FormattedText, {
+                    as: "p",
+                    className: "text-subtext-0",
+                    children: description
+                })
+            ]
+        });
+    };
+    export default Card;
+css:
+  original: ""
+  compiled: ""
+dataDependencies: {}

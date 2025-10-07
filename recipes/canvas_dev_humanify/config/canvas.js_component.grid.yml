@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies: {}
+machineName: grid
+name: Grid
+required: {}
+props: {}
+slots:
+  content:
+    title: Content
+js:
+  original: |
+    const Grid = ({ content }) => {
+      return (
+        <div className="min-w-sm grid w-full grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+          {content}
+        </div>
+      );
+    };
+
+    export default Grid;
+  compiled: |
+    import { jsx as _jsx } from "react/jsx-runtime";
+    const Grid = ({ content })=>{
+        return /*#__PURE__*/ _jsx("div", {
+            className: "min-w-sm grid w-full grid-cols-1 gap-6 md:grid-cols-3 md:gap-8",
+            children: content
+        });
+    };
+    export default Grid;
+css:
+  original: ""
+  compiled: ""
+dataDependencies: {}

@@ -1,0 +1,143 @@
+langcode: en
+status: true
+dependencies: {}
+machineName: footer
+name: Footer
+required:
+  - copyrightNotice
+  - backgroundColor
+props:
+  copyrightNotice:
+    title: "Copyright notice"
+    type: string
+    examples:
+      - "&copy; 2025 Humanify Inc. All rights reserved."
+    contentMediaType: text/html
+    x-formatting-context: block
+  darkVariant:
+    title: "Dark variant"
+    type: boolean
+    examples:
+      - true
+  backgroundColor:
+    title: "Background color"
+    type: string
+    examples:
+      - crust
+    enum:
+      - base
+      - mantle
+      - crust
+    "meta:enum":
+      base: Base
+      mantle: Mantle
+      crust: Crust
+slots:
+  branding:
+    title: Branding
+js:
+  original: |
+    import FormattedText from "@/lib/FormattedText";
+    import { cn } from "@/lib/utils";
+    import { cva } from "class-variance-authority";
+
+    const Footer = ({
+      branding,
+      copyrightNotice,
+      darkVariant,
+      backgroundColor,
+    }) => {
+      const footerVariants = cva("", {
+        variants: {
+          colorScheme: {
+            light: "",
+            dark: "dark",
+          },
+          backgroundColor: {
+            base: "bg-base",
+            mantle: "bg-mantle",
+            crust: "bg-crust",
+          },
+        },
+        defaultVariants: {
+          colorScheme: "light",
+          backgroundColor: "base",
+        },
+      });
+      return (
+        <footer
+          className={footerVariants({
+            colorScheme: darkVariant ? "dark" : "light",
+            backgroundColor,
+          })}
+        >
+          <div className="min-w-sm mx-auto flex max-w-screen-md flex-col items-center gap-12 p-12 md:p-16">
+            <div
+              className={cn(
+                "h-12 flex-shrink-0 items-center justify-start",
+                branding?.props?.value?.includes(
+                  "canvas--slot-empty-placeholder",
+                ) && "min-w-32",
+              )}
+            >
+              {branding}
+            </div>
+            <FormattedText as="p" className="text-text text-sm">
+              {copyrightNotice}
+            </FormattedText>
+          </div>
+        </footer>
+      );
+    };
+
+    export default Footer;
+  compiled: |
+    import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+    import FormattedText from "@/lib/FormattedText";
+    import { cn } from "@/lib/utils";
+    import { cva } from "class-variance-authority";
+    const Footer = ({ branding, copyrightNotice, darkVariant, backgroundColor })=>{
+        var _branding_props_value, _branding_props;
+        const footerVariants = cva("", {
+            variants: {
+                colorScheme: {
+                    light: "",
+                    dark: "dark"
+                },
+                backgroundColor: {
+                    base: "bg-base",
+                    mantle: "bg-mantle",
+                    crust: "bg-crust"
+                }
+            },
+            defaultVariants: {
+                colorScheme: "light",
+                backgroundColor: "base"
+            }
+        });
+        return /*#__PURE__*/ _jsx("footer", {
+            className: footerVariants({
+                colorScheme: darkVariant ? "dark" : "light",
+                backgroundColor
+            }),
+            children: /*#__PURE__*/ _jsxs("div", {
+                className: "min-w-sm mx-auto flex max-w-screen-md flex-col items-center gap-12 p-12 md:p-16",
+                children: [
+                    /*#__PURE__*/ _jsx("div", {
+                        className: cn("h-12 flex-shrink-0 items-center justify-start", (branding === null || branding === void 0 ? void 0 : (_branding_props = branding.props) === null || _branding_props === void 0 ? void 0 : (_branding_props_value = _branding_props.value) === null || _branding_props_value === void 0 ? void 0 : _branding_props_value.includes("canvas--slot-empty-placeholder")) && "min-w-32"),
+                        children: branding
+                    }),
+                    /*#__PURE__*/ _jsx(FormattedText, {
+                        as: "p",
+                        className: "text-text text-sm",
+                        children: copyrightNotice
+                    })
+                ]
+            })
+        });
+    };
+    export default Footer;
+css:
+  original: ""
+  compiled: ""
+dataDependencies: {}
