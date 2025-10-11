@@ -26,7 +26,7 @@ or `ddev drush en canvas_vite && ddev ui` for using the development server.
 | `phpunit [path]`        | Run PHPUnit tests in the module's codebase<br><br>`[path]`: narrows to the path, relative to the module directory                                                                                                                |
 | `phpcs [path]`          | Run PHP Code Beautifier and Fixer in the module's codebase<br><br>`[path]`: narrows to the path, relative to the module directory                                                                                                |
 | `phpstan`               | Run PHPStan in the module's codebase                                                                                                                                                                                             |
-| `si`,<br>`site-install` | Install Drupal site, install and configure modules: Canvas, Canvas AI, Canvas OAuth.<br><br>`--no-vite`: skips installing Canvas Vite                                                                                            |
+| `si`,<br>`site-install` | Install Drupal site, install and configure modules: Canvas, Canvas OAuth.                                                                                                                                                        |
 | `clone-repo`            | Clone the Canvas module's repository. (Runs on the host.)                                                                                                                                                                        |
 
 See the [list of commands](https://docs.ddev.com/en/stable/users/usage/cli/)

@@ -2,38 +2,21 @@
 
 ## Description: Drupal Canvas: Install Drupal site.
 ## Aliases: si
-## Usage: site-install [--no-vite]
-## Example: "ddev site-install" or "ddev site-install --no-vite"
+## Usage: site-install
+## Example: "ddev site-install"
 ## ExecRaw: true
 
 set -e
 
-cd "$DDEV_COMPOSER_ROOT/web/modules/contrib/canvas"
-CANVAS_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD)
-
-# Parse command line arguments.
-NO_VITE=false
-for arg in "$@"; do
-    if [[ "$arg" == "--no-vite" ]]; then
-        NO_VITE=true
-    fi
-done
-
 # Install Drupal.
 drush site-install \
     --account-pass=admin \
-    --site-name="Canvas [$CANVAS_BRANCH]" \
+    --site-name="Canvas: DrupalCon Vienna 2025" \
     --account-pass=admin \
     --yes
 
 # Enable modules.
-# @todo Convert enabling modules into recipes.
-MODULES="canvas canvas_dev_mode canvas_ai ai_provider_openai ai_agents_test config default_content"
-if [[ "$NO_VITE" == "false" ]]; then
-    MODULES="$MODULES canvas_vite"
-fi
-
-drush pm:enable --yes $MODULES
+drush pm:enable --yes canvas canvas_dev_mode config default_content
 
 # Apply recipes.
 drush recipe ../recipes/canvas_dev_humanify
@@ -50,12 +33,3 @@ drush php-eval "
     \$entity->set('secret', 'secret');
     \$entity->save();
 "
-
-# Configure the OpenAI AI provider for Canvas AI.
-# @todo Convert this to a recipe.
-drush key-save openai_api_key --label="OpenAI API key" --key-type=authentication --key-provider=env --key-provider-settings='{"env_variable": "OPENAI_API_KEY"}'
-drush config:set --yes ai_provider_openai.settings api_key openai_api_key
-drush config:set --yes --input-format=yaml ai.settings default_providers.chat "{provider_id: openai, model_id: gpt-4o}"
-drush config:set --yes --input-format=yaml ai.settings default_providers.chat_with_complex_json "{provider_id: openai, model_id: gpt-4o}"
-drush config:set --yes --input-format=yaml ai.settings default_providers.chat_with_structured_response "{provider_id: openai, model_id: gpt-4.1}"
-drush config:set --yes --input-format=yaml ai.settings default_providers.chat_with_tools "{provider_id: openai, model_id: gpt-4.1}"
