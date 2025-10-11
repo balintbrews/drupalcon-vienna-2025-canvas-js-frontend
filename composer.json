@@ -1,18 +1,9 @@
 {
-  "name": "balintbrews/drupal-canvas-dev",
-  "description": "An opinionated development environment for brewing Drupal Canvas.",
+  "name": "balintbrews/drupalcon-vienna-2025-canvas-js-frontend",
+  "description": "DrupalCon Vienna 2025 session demo — JavaScript frontend development with Drupal Canvas: Beyond decoupling.",
   "type": "project",
   "license": "GPL-2.0-or-later",
-  "homepage": "https://github.com/balintbrews/drupal-canvas-dev",
-  "support": {
-    "docs": "https://github.com/balintbrews/drupal-canvas-dev#readme",
-    "chat": "https://drupal.org/slack"
-  },
   "repositories": {
-    "canvas": {
-      "type": "path",
-      "url": "web/modules/contrib/canvas"
-    },
     "drupal": {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
@@ -23,7 +14,7 @@
     "drupal/ai_agents": "^1.1",
     "drupal/ai_agents_test": "^1.0@alpha",
     "drupal/ai_provider_openai": "^1.1",
-    "drupal/canvas": "1.x-dev",
+    "drupal/canvas": "^1.0@rc",
     "drupal/core-composer-scaffold": "^11.2",
     "drupal/core-dev": "^11.2",
     "drupal/core-project-message": "^11.2",
@@ -61,11 +52,6 @@
       "tbachert/spi": true
     },
     "sort-packages": true
-  },
-  "scripts": {
-    "pre-install-cmd": [
-      "./scripts/check-repo.sh"
-    ]
   },
   "extra": {
     "drupal-scaffold": {
