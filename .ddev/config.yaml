@@ -1,4 +1,4 @@
-name: canvas
+name: drupalcon-vienna-2025-canvas-js-frontend
 type: drupal11
 docroot: web
 php_version: "8.3"
@@ -14,65 +14,9 @@ composer_version: "2"
 corepack_enable: true
 nodejs_version: "20"
 web_environment:
-  # Base URL for Cypress
-  # See `installCommand()` in tests/support/commands.js
-  - BASE_URL=http://localhost
-  - CYPRESS_CACHE_FOLDER=/var/www/html/.cache/cypress
-  - DISPLAY=:0
-  - DRUPAL_TEST_BASE_URL=http://localhost
-  - DRUPAL_TEST_DB_URL=$DDEV_DATABASE_FAMILY://db:db@db/db
-  - SIMPLETEST_BASE_URL=$DDEV_PRIMARY_URL
-  - SIMPLETEST_DB=$DDEV_DATABASE_FAMILY://db:db@db/db
   - VITE_SERVER_ORIGIN=https://${DDEV_HOSTNAME}:5174
-webimage_extra_packages:
-  # System dependencies for Cypress
-  # See https://docs.cypress.io/guides/getting-started/installing-cypress#UbuntuDebian
-  - libgtk2.0-0
-  - libgtk-3-0
-  - libgbm-dev
-  - libnotify-dev
-  - libnss3
-  - libxss1
-  - libasound2
-  - libxtst6
-  - xauth
-  - xvfb
-  # Browser for Cypress to test against
-  - chromium
-  # Libraries for setting up noVNC to watch Cypress tests
-  - novnc
-  - x11vnc
-  # Lightweight window manager for full-screen applications
-  - fluxbox
-web_extra_daemons:
-  - name: Xvfb
-    command: Xvfb :0 -screen 0 1920x1280x16
-    directory: /var/www/html
-  - name: fluxbox
-    command: fluxbox -display :0
-    directory: /var/www/html
-  - name: x11vnc
-    command: x11vnc -display :0 -forever -nopw
-    directory: /var/www/html
-  # Make noVNC available at https://drupal-cms-dev.ddev.site:6081/vnc.html
-  - name: novnc
-    command:
-      /usr/share/novnc/utils/novnc_proxy --web /usr/share/novnc --vnc
-      localhost:5900
-    directory: /usr/share/novnc
 web_extra_exposed_ports:
   - name: vite-dev-server
     container_port: 5173
     http_port: 5173
     https_port: 5174
-  - name: novnc
-    container_port: 6080
-    http_port: 6080
-    https_port: 6081
-hooks:
-  post-start:
-    - exec-host: ddev clone-repo
-    - exec-host: ddev composer install
-    - exec-host: ddev site-install
-    - exec-host: ddev launch
-    - exec-host: ddev ui --install --build

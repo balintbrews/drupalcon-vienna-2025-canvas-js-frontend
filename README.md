@@ -1,17 +1,19 @@
-# `drupal-canvas-dev`
+# `drupalcon-vienna-2025-canvas-js-frontend`
 
-An opinionated development environment for brewing
-[Drupal Canvas](https://www.drupal.org/project/canvas), built with
-[DDEV](https://ddev.com/). I maintain this project to use for my day-to-day
-development work, with workflows and tools I prefer.
+DrupalCon Vienna 2025 session demo —
+[JavaScript frontend development with Drupal Canvas: Beyond decoupling](https://events.drupal.org/vienna2025/session/javascript-frontend-development-drupal-canvas-beyond-decoupling).
 
 ## Setup
 
-1. Clone the repository
-2. Copy `.ddev/.env.example` to `.ddev/.env`
-   1. Add your [OpenAI API key](https://platform.openai.com) to be used by the
-      Canvas AI module
-3. Run `ddev start`
+```
+$ ddev composer install
+$ ddev site-install
+$ ddev launch
+```
+
+The latest RC of Canvas is downloaded via Composer. It being a tagged release,
+it already contains the UI build artifacts. Run `ddev n run build` to rebuild,
+or `ddev drush en canvas_vite && ddev ui` for using the development server.
 
 ## Commands
 
@@ -29,7 +31,3 @@ development work, with workflows and tools I prefer.
 
 See the [list of commands](https://docs.ddev.com/en/stable/users/usage/cli/)
 provided by DDEV out-of-the box.
-
-## Credits
-
-My work on Drupal Canvas is made possible by [Acquia](https://www.acquia.com).
