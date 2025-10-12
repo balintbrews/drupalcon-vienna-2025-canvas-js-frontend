@@ -1,0 +1,40 @@
+#!/bin/bash
+
+## Description: Drupal Canvas: Install Lupus Decoupled site (or apply recipe to existing site).
+## Aliases: il
+## Usage: install-lupus [--full]
+## Example: "install-lupus" (applies recipe to existing site)
+## Example: "install-lupus --full" (full site install + recipe)
+## ExecRaw: true
+
+set -e
+
+# Check if --full flag is passed
+if [ "$1" = "--full" ]; then
+  echo "Performing full site install..."
+
+  # Run the existing site-install command
+  /var/www/html/.ddev/commands/web/site-install
+
+  echo "Applying Lupus Decoupled recipe..."
+  drush recipe ../recipes/canvas_dev_lupus_decoupled
+
+  # Canvas is not finding extjs plugin without cache-clear!
+  drush cr
+
+  echo "✓ Full site install with Lupus Decoupled complete!"
+else
+  # Check if Drupal is already installed
+  if ! drush status --field=bootstrap 2>/dev/null | grep -q "Successful"; then
+    echo "Error: Drupal is not installed. Run 'ddev install-lupus --full' for a full installation."
+    exit 1
+  fi
+
+  echo "Applying Lupus Decoupled recipe to existing site..."
+  drush recipe ../recipes/canvas_dev_lupus_decoupled
+
+  # Canvas is not finding extjs plugin without cache-clear!
+  drush cr
+
+  echo "✓ Recipe applied successfully!"
+fi
