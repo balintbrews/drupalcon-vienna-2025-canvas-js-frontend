@@ -2,7 +2,7 @@
   <!-- NuxtLayout disabled for demo purposes to show Canvas components without wrapper layout -->
   <!-- <NuxtLayout :name="layout"> -->
     <LazyDrupalTabs
-      v-if="page.local_tasks"
+      v-if="page.local_tasks && page.local_tasks.length > 0"
       :tabs="page.local_tasks"
     />
     <component :is="renderCustomElements(page.content)" />
