@@ -1,0 +1,5 @@
+name: Canvas Nuxt Example Recipe
+description: Installs a Canvas page built with Nuxt-based external JS components
+install:
+  - canvas
+  - canvas_extjs
