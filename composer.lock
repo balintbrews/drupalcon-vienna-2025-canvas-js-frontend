@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5434ecc7b3c6d9889d49aa70a5344c4f",
+    "content-hash": "ad5ff144a1f5d0daccaa2ba47c600c45",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2137,6 +2137,55 @@
             "time": "2024-02-05T11:35:39+00:00"
         },
         {
+            "name": "drunomics/service-utils",
+            "version": "10.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drunomics/service-utils.git",
+                "reference": "e88fc203ddea00e288dff916a22447ab92251bb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drunomics/service-utils/zipball/e88fc203ddea00e288dff916a22447ab92251bb0",
+                "reference": "e88fc203ddea00e288dff916a22447ab92251bb0",
+                "shasum": ""
+            },
+            "require-dev": {
+                "drupal/coder": "^8.3",
+                "drupal/core": "^10",
+                "drupal/pathauto": "^1.11",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "drunomics\\ServiceUtils\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "drunomics GmbH",
+                    "email": "hello@drunomics.com"
+                }
+            ],
+            "description": "Provides setter injection traits in order to ease dependency injection of services.",
+            "homepage": "https://github.com/drunomics/service-utils",
+            "keywords": [
+                "dependency-injection",
+                "drupal"
+            ],
+            "support": {
+                "issues": "https://github.com/drunomics/service-utils/issues",
+                "source": "https://github.com/drunomics/service-utils/tree/10.1.2"
+            },
+            "time": "2025-09-05T13:10:39+00:00"
+        },
+        {
             "name": "drupal/ai",
             "version": "1.1.5",
             "source": {
@@ -2581,6 +2630,61 @@
             "homepage": "https://www.drupal.org/project/canvas",
             "support": {
                 "source": "https://git.drupalcode.org/project/canvas"
+            }
+        },
+        {
+            "name": "drupal/canvas_extjs",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/canvas_extjs.git",
+                "reference": "a2ba265716d61f6c0d60eba6d5e04e9737b60cfb"
+            },
+            "require": {
+                "drupal/canvas": "*",
+                "drupal/core": "^11.2",
+                "justinrainbow/json-schema": "^6.0"
+            },
+            "require-dev": {
+                "drupal/custom_elements": "3.x-dev"
+            },
+            "suggest": {
+                "drupal/custom_elements": "Provides integration with Custom Elements for rendering components"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "1.x-dev",
+                    "datestamp": "1760083954",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                }
+            ],
+            "description": "External JavaScript component source for Canvas",
+            "homepage": "https://www.drupal.org/project/canvas",
+            "keywords": [
+                "Canvas",
+                "Components",
+                "Drupal",
+                "JavaScript"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/canvas_extjs"
             }
         },
         {
@@ -3131,6 +3235,71 @@
             "time": "2025-10-02T07:24:02+00:00"
         },
         {
+            "name": "drupal/custom_elements",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/custom_elements.git",
+                "reference": "3.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/custom_elements-3.2.0.zip",
+                "reference": "3.2.0",
+                "shasum": "5aa5ac93e4b9792b86262411c3bde7d581ecbf87"
+            },
+            "require": {
+                "drunomics/service-utils": "*",
+                "drupal/core": "^10 || ^11"
+            },
+            "require-dev": {
+                "drupal/canvas": "1.x-dev",
+                "drupal/canvas_extjs": "1.x-dev",
+                "drupal/crop": "^2.4",
+                "drupal/entity_reference_revisions": "^1.12",
+                "drupal/paragraphs": "^1.18",
+                "drupal/tablefield": "^3.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.2.0",
+                    "datestamp": "1760252380",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "branch-alias": {
+                    "dev-8.x-1.x": "1.0.x-dev"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "drunomics GmbH",
+                    "homepage": "https://www.drupal.org/user/16747",
+                    "email": "hello@drunomics.com"
+                },
+                {
+                    "name": "roderik",
+                    "homepage": "https://www.drupal.org/user/8841"
+                },
+                {
+                    "name": "useernamee",
+                    "homepage": "https://www.drupal.org/user/3542704"
+                }
+            ],
+            "description": "Render fields as custom elements.",
+            "homepage": "https://www.drupal.org/project/custom_elements",
+            "support": {
+                "source": "https://git.drupalcode.org/project/custom_elements"
+            }
+        },
+        {
             "name": "drupal/key",
             "version": "1.20.0",
             "source": {
@@ -3206,6 +3375,416 @@
             }
         },
         {
+            "name": "drupal/lupus_ce_renderer",
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/lupus_ce_renderer.git",
+                "reference": "2.5.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/lupus_ce_renderer-2.5.0.zip",
+                "reference": "2.5.0",
+                "shasum": "bb2ab415315c53b8a4886721f4232bbee57d17b9"
+            },
+            "require": {
+                "drunomics/service-utils": "*",
+                "drupal/core": "^9 || ^10 || ^11",
+                "drupal/custom_elements": "^2.0 || ^3.0.0-alpha2",
+                "drupal/metatag": "^1.23 | ^2.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.5.0",
+                    "datestamp": "1747999794",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "ciprian.stavovei",
+                    "homepage": "https://www.drupal.org/user/3426791"
+                },
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                },
+                {
+                    "name": "useernamee",
+                    "homepage": "https://www.drupal.org/user/3542704"
+                }
+            ],
+            "description": "Renders main content using custom elements.",
+            "homepage": "https://www.drupal.org/project/lupus_ce_renderer",
+            "keywords": [
+                "Decoupled",
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/lupus_ce_renderer"
+            }
+        },
+        {
+            "name": "drupal/lupus_decoupled",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/lupus_decoupled.git",
+                "reference": "1.3.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/lupus_decoupled-1.3.0.zip",
+                "reference": "1.3.0",
+                "shasum": "2cc4948228a7f418364c603583881a66a30fbd97"
+            },
+            "require": {
+                "drunomics/service-utils": "*",
+                "drupal/core": "^10 || ^11",
+                "drupal/custom_elements": "^2.0 | ^3.0.2",
+                "drupal/lupus_ce_renderer": "^2.4.0",
+                "drupal/lupus_decoupled_ce_api": "*",
+                "drupal/lupus_decoupled_cors": "*",
+                "drupal/lupus_decoupled_menu": "*",
+                "drupal/rest_menu_items": "^3.0.3",
+                "drupal/trusted_redirect": "^1.11.0"
+            },
+            "require-dev": {
+                "drupal/custom_elements": "*",
+                "drupal/lupus_ce_renderer": "*",
+                "drupal/lupus_decoupled_ce_api": "*",
+                "drupal/lupus_decoupled_form": "*",
+                "drupal/responsive_preview": "^2.1.1",
+                "drupal/rest-rest": "*",
+                "drupal/rest_log": "^2.0",
+                "drupal/rest_menu_items": "*",
+                "drupal/schema_metatag": "^2.0 | ^3.0",
+                "drupal/search_api": "^1.0",
+                "drupal/search_api_exclude": "^2.0",
+                "drupal/trusted_redirect": "*",
+                "drupal/user-user": "*",
+                "drupal/webform": "^6.0"
+            },
+            "suggest": {
+                "drupal/responsive_preview": "^2.0",
+                "drupal/rest_log": "^2.3",
+                "drupal/schema_metatag": "^3.0",
+                "drupal/search_api": "^1.0",
+                "drupal/search_api_exclude": "^2.0",
+                "drupal/webform": "^6.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.3.0",
+                    "datestamp": "1760253150",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "arthur_lorenz",
+                    "homepage": "https://www.drupal.org/user/3529915"
+                },
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                },
+                {
+                    "name": "useernamee",
+                    "homepage": "https://www.drupal.org/user/3542704"
+                }
+            ],
+            "description": "Ready-to-go Decoupled Drupal with Nuxt.js!",
+            "homepage": "https://www.drupal.org/project/lupus_decoupled",
+            "keywords": [
+                "Decoupled",
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/lupus_decoupled"
+            }
+        },
+        {
+            "name": "drupal/lupus_decoupled_ce_api",
+            "version": "1.3.0",
+            "require": {
+                "drupal/core": "^10 || ^11",
+                "drupal/custom_elements": "*",
+                "drupal/lupus_ce_renderer": "*",
+                "drupal/lupus_decoupled": "^1",
+                "drupal/trusted_redirect": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "drupal": {
+                    "version": "1.3.0",
+                    "datestamp": "1760253150",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "arthur_lorenz",
+                    "homepage": "https://www.drupal.org/user/3529915"
+                },
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                },
+                {
+                    "name": "useernamee",
+                    "homepage": "https://www.drupal.org/user/3542704"
+                }
+            ],
+            "description": "Provides custom elements API at /ce-api",
+            "homepage": "https://www.drupal.org/project/lupus_decoupled",
+            "support": {
+                "source": "https://git.drupalcode.org/project/lupus_decoupled"
+            }
+        },
+        {
+            "name": "drupal/lupus_decoupled_cors",
+            "version": "1.3.0",
+            "require": {
+                "drupal/core": "^10 || ^11",
+                "drupal/lupus_decoupled": "^1",
+                "drupal/lupus_decoupled_ce_api": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "drupal": {
+                    "version": "1.3.0",
+                    "datestamp": "1760253150",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "arthur_lorenz",
+                    "homepage": "https://www.drupal.org/user/3529915"
+                },
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                },
+                {
+                    "name": "useernamee",
+                    "homepage": "https://www.drupal.org/user/3542704"
+                }
+            ],
+            "description": "Configures CORS to allow the frontend to use Drupal APIs from within the browser",
+            "homepage": "https://www.drupal.org/project/lupus_decoupled",
+            "support": {
+                "source": "https://git.drupalcode.org/project/lupus_decoupled"
+            }
+        },
+        {
+            "name": "drupal/lupus_decoupled_menu",
+            "version": "1.3.0",
+            "require": {
+                "drupal/core": "^10 || ^11",
+                "drupal/custom_elements": "*",
+                "drupal/lupus_decoupled": "^1",
+                "drupal/lupus_decoupled_ce_api": "*",
+                "drupal/rest_menu_items": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "drupal": {
+                    "version": "1.3.0",
+                    "datestamp": "1760253150",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "arthur_lorenz",
+                    "homepage": "https://www.drupal.org/user/3529915"
+                },
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                },
+                {
+                    "name": "useernamee",
+                    "homepage": "https://www.drupal.org/user/3542704"
+                }
+            ],
+            "description": "Provides menu API endpoints for Drupal menus",
+            "homepage": "https://www.drupal.org/project/lupus_decoupled",
+            "support": {
+                "source": "https://git.drupalcode.org/project/lupus_decoupled"
+            }
+        },
+        {
+            "name": "drupal/metatag",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/metatag.git",
+                "reference": "2.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/metatag-2.2.0.zip",
+                "reference": "2.2.0",
+                "shasum": "b6ae4b665a49771d5139644c71cb3d5a68cb4828"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11",
+                "drupal/token": "^1.0",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "drupal/forum": "1.x-dev",
+                "drupal/hal": "^1 || ^2 || ^9",
+                "drupal/metatag_dc": "*",
+                "drupal/metatag_open_graph": "*",
+                "drupal/page_manager": "^4.0",
+                "drupal/redirect": "^1.0",
+                "ergebnis/composer-normalize": "*",
+                "mpyw/phpunit-patch-serializable-comparison": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.2.0",
+                    "datestamp": "1758622371",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "composer-normalize": {
+                    "indent-size": 2,
+                    "indent-style": "space"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "See contributors",
+                    "homepage": "https://www.drupal.org/node/640498/committers",
+                    "role": "Developer"
+                },
+                {
+                    "name": "dave reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                }
+            ],
+            "description": "Manage meta tags for all entities.",
+            "homepage": "https://www.drupal.org/project/metatag",
+            "keywords": [
+                "Drupal",
+                "seo"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/metatag",
+                "issues": "https://www.drupal.org/project/issues/metatag",
+                "docs": "https://www.drupal.org/docs/8/modules/metatag"
+            }
+        },
+        {
+            "name": "drupal/rest_menu_items",
+            "version": "3.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/rest_menu_items.git",
+                "reference": "3.0.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/rest_menu_items-3.0.5.zip",
+                "reference": "3.0.5",
+                "shasum": "dde2dfbd964abec6d29711974dfad26daf2158e6"
+            },
+            "require": {
+                "drupal/core": "^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.5",
+                    "datestamp": "1748516541",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Fabian de Rijk (fabianderijk)",
+                    "homepage": "https://www.drupal.org/u/fabianderijk",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "fabianderijk",
+                    "homepage": "https://www.drupal.org/user/278745"
+                },
+                {
+                    "name": "immoreel",
+                    "homepage": "https://www.drupal.org/user/1695422"
+                },
+                {
+                    "name": "tomvv",
+                    "homepage": "https://www.drupal.org/user/2748021"
+                }
+            ],
+            "description": "This module provides a REST endpoint to retrieve menu items based on the menu name.",
+            "homepage": "https://drupal.org/project/rest_menu_items",
+            "support": {
+                "source": "https://cgit.drupalcode.org/rest_menu_items",
+                "issues": "https://drupal.org/project/issues/rest_menu_items",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
             "name": "drupal/simple_oauth",
             "version": "6.0.2",
             "source": {
@@ -3272,6 +3851,130 @@
             "homepage": "https://www.drupal.org/project/simple_oauth",
             "support": {
                 "source": "https://git.drupalcode.org/project/simple_oauth"
+            }
+        },
+        {
+            "name": "drupal/token",
+            "version": "1.16.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/token.git",
+                "reference": "8.x-1.16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/token-8.x-1.16.zip",
+                "reference": "8.x-1.16",
+                "shasum": "f7ae77316ef8135068d995c09507da7517b20572"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10 || ^11"
+            },
+            "require-dev": {
+                "drupal/book": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.16",
+                    "datestamp": "1757151197",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": ">=9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "dave reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "eaton",
+                    "homepage": "https://www.drupal.org/user/16496"
+                },
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                },
+                {
+                    "name": "greggles",
+                    "homepage": "https://www.drupal.org/user/36762"
+                },
+                {
+                    "name": "mikeryan",
+                    "homepage": "https://www.drupal.org/user/4420"
+                }
+            ],
+            "description": "Provides a user interface for the Token API, some missing core tokens.",
+            "homepage": "https://www.drupal.org/project/token",
+            "support": {
+                "source": "https://git.drupalcode.org/project/token"
+            }
+        },
+        {
+            "name": "drupal/trusted_redirect",
+            "version": "1.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/trusted_redirect.git",
+                "reference": "8.x-1.13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/trusted_redirect-8.x-1.13.zip",
+                "reference": "8.x-1.13",
+                "shasum": "1ec3d406fd38685a862efd1517b2b36df9da834c"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.13",
+                    "datestamp": "1727788997",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "ciprian.stavovei",
+                    "homepage": "https://www.drupal.org/user/3426791"
+                },
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                },
+                {
+                    "name": "hideaway",
+                    "homepage": "https://www.drupal.org/user/741876"
+                }
+            ],
+            "description": "Allows to redirect to external hosts which are configured as trusted.",
+            "homepage": "https://www.drupal.org/project/trusted_redirect",
+            "support": {
+                "source": "https://git.drupalcode.org/project/trusted_redirect"
             }
         },
         {
@@ -13943,149 +14646,6 @@
             }
         },
         {
-            "name": "drupal/metatag",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/metatag.git",
-                "reference": "2.2.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/metatag-2.2.0.zip",
-                "reference": "2.2.0",
-                "shasum": "b6ae4b665a49771d5139644c71cb3d5a68cb4828"
-            },
-            "require": {
-                "drupal/core": "^10.3 || ^11",
-                "drupal/token": "^1.0",
-                "php": ">=8.0"
-            },
-            "require-dev": {
-                "drupal/forum": "1.x-dev",
-                "drupal/hal": "^1 || ^2 || ^9",
-                "drupal/metatag_dc": "*",
-                "drupal/metatag_open_graph": "*",
-                "drupal/page_manager": "^4.0",
-                "drupal/redirect": "^1.0",
-                "ergebnis/composer-normalize": "*",
-                "mpyw/phpunit-patch-serializable-comparison": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.2.0",
-                    "datestamp": "1758622371",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "composer-normalize": {
-                    "indent-size": 2,
-                    "indent-style": "space"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "See contributors",
-                    "homepage": "https://www.drupal.org/node/640498/committers",
-                    "role": "Developer"
-                },
-                {
-                    "name": "dave reid",
-                    "homepage": "https://www.drupal.org/user/53892"
-                }
-            ],
-            "description": "Manage meta tags for all entities.",
-            "homepage": "https://www.drupal.org/project/metatag",
-            "keywords": [
-                "Drupal",
-                "seo"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/metatag",
-                "issues": "https://www.drupal.org/project/issues/metatag",
-                "docs": "https://www.drupal.org/docs/8/modules/metatag"
-            }
-        },
-        {
-            "name": "drupal/token",
-            "version": "1.16.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/token.git",
-                "reference": "8.x-1.16"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/token-8.x-1.16.zip",
-                "reference": "8.x-1.16",
-                "shasum": "f7ae77316ef8135068d995c09507da7517b20572"
-            },
-            "require": {
-                "drupal/core": "^9.2 || ^10 || ^11"
-            },
-            "require-dev": {
-                "drupal/book": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.16",
-                    "datestamp": "1757151197",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "drush": {
-                    "services": {
-                        "drush.services.yml": ">=9"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "berdir",
-                    "homepage": "https://www.drupal.org/user/214652"
-                },
-                {
-                    "name": "dave reid",
-                    "homepage": "https://www.drupal.org/user/53892"
-                },
-                {
-                    "name": "eaton",
-                    "homepage": "https://www.drupal.org/user/16496"
-                },
-                {
-                    "name": "fago",
-                    "homepage": "https://www.drupal.org/user/16747"
-                },
-                {
-                    "name": "greggles",
-                    "homepage": "https://www.drupal.org/user/36762"
-                },
-                {
-                    "name": "mikeryan",
-                    "homepage": "https://www.drupal.org/user/4420"
-                }
-            ],
-            "description": "Provides a user interface for the Token API, some missing core tokens.",
-            "homepage": "https://www.drupal.org/project/token",
-            "support": {
-                "source": "https://git.drupalcode.org/project/token"
-            }
-        },
-        {
             "name": "jangregor/phpstan-prophecy",
             "version": "2.2.0",
             "source": {
@@ -14392,11 +14952,12 @@
     "stability-flags": {
         "drupal/ai_agents_test": 15,
         "drupal/canvas": 5,
+        "drupal/canvas_extjs": 20,
         "drupal/default_content": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }

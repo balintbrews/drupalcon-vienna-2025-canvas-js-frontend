@@ -1,0 +1,24 @@
+name: Canvas Lupus Decoupled Drupal Recipe
+install:
+  - canvas
+  - canvas_extjs
+  - menu_link_content
+  - lupus_decoupled
+  - lupus_decoupled_ce_api
+config:
+  strict: false
+  import:
+    custom_elements: '*'
+    lupus_decoupled_menu: '*'
+    rest_menu_items: '*'
+  actions:
+    lupus_decoupled_ce_api.settings:
+      simpleConfigUpdate:
+        frontend_base_url: http://localhost:3000
+        frontend_routes_redirect: true
+        absolute_file_urls: true
+        preview_provider: nuxt
+    user.role.anonymous:
+      grantPermission: 'restful get rest_menu_item'
+    user.role.authenticated:
+      grantPermission: 'restful get rest_menu_item'
