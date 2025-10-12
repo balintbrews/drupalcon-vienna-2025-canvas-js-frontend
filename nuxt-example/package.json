@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "init-project-files": "nuxt-drupal-ce-init",
+    "build": "nuxt build",
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "start": "node .output/server/index.mjs",
+    "postinstall": "nuxt prepare && npm run init-project-files",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.0.0",
+    "@nuxtjs/tailwindcss": "^7.0.0-beta.1",
+    "nuxt": "^4.1.3",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "nuxt-component-preview": "^1.0.0-alpha.10",
+    "nuxtjs-drupal-ce": "^2.4.2"
+  }
+}
