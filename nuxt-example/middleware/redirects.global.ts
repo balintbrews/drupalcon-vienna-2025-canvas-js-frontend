@@ -1,5 +1,10 @@
 export default defineNuxtRouteMiddleware((to) => {
-  const config = useRuntimeConfig().public.drupalCe
+  const config = useRuntimeConfig().public
+
+  // Skip redirects when in component preview mode (embedded in Drupal).
+  if (config.componentPreview) {
+    return
+  }
 
   switch (true) {
     case /^\/((en|de)\/)?user.*$/.test(to.path):
@@ -13,7 +18,7 @@ export default defineNuxtRouteMiddleware((to) => {
       to.path
     ):
     case /^\/((en|de)\/)?node\/[^/]+\/layout$/.test(to.path):
-      return navigateTo(`${config.drupalBaseUrl}${to.fullPath}`, {
+      return navigateTo(`${config.drupalCe.drupalBaseUrl}${to.fullPath}`, {
         external: true,
         redirectCode: 301,
       })
