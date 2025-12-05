@@ -36,11 +36,11 @@ defineSlots<{
   /**
    * First column content
    */
-  'column-one'?(): unknown
+  'column-one'?(): any
   /**
    * Second column content
    */
-  'column-two'?(): unknown
+  'column-two'?(): any
 }>()
 
 const secondColumnWidth = computed(() => {

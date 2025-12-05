@@ -2,14 +2,10 @@
   <header :class="headerVariants({ colorScheme: darkVariant ? 'dark' : 'light', backgroundColor })">
     <div class="min-w-sm mx-auto flex h-24 max-w-screen-xl items-center justify-between gap-x-12 px-4 sm:px-12 md:h-32 lg:gap-x-16 lg:px-16">
       <div class="h-12 flex-shrink-0 items-center justify-start md:h-16">
-        <slot name="branding">
-          <component :is="useDrupalCe().renderCustomElements(branding)" />
-        </slot>
+        <slot name="branding" />
       </div>
       <div class="flex h-12 flex-grow items-center justify-end md:h-16">
-        <slot name="navigation">
-          <component :is="useDrupalCe().renderCustomElements(navigation)" />
-        </slot>
+        <slot name="navigation" />
       </div>
     </div>
   </header>
@@ -17,17 +13,8 @@
 
 <script setup lang="ts">
 import { cva } from 'class-variance-authority'
-import type { CustomElementContent } from '#nuxtjs-drupal-ce/types'
 
 withDefaults(defineProps<{
-  /**
-   * Branding/logo slot
-   */
-  branding?: CustomElementContent
-  /**
-   * Navigation slot
-   */
-  navigation?: CustomElementContent
   /**
    * Whether to use dark mode
    * @example false
@@ -42,8 +29,6 @@ withDefaults(defineProps<{
    */
   backgroundColor?: 'base' | 'mantle' | 'crust'
 }>(), {
-  branding: undefined,
-  navigation: undefined,
   darkVariant: false,
   backgroundColor: 'base',
 })
@@ -52,11 +37,11 @@ defineSlots<{
   /**
    * Branding/logo slot
    */
-  branding?(): unknown
+  branding?(): any
   /**
    * Navigation slot
    */
-  navigation?(): unknown
+  navigation?(): any
 }>()
 
 const headerVariants = cva("", {
