@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad5ff144a1f5d0daccaa2ba47c600c45",
+    "content-hash": "e0a4df2c74e90cc2f0f5ab449d98ac83",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2491,17 +2491,17 @@
         },
         {
             "name": "drupal/canvas",
-            "version": "1.0.0-rc1",
+            "version": "1.0.0-rc5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/canvas.git",
-                "reference": "1.0.0-rc1"
+                "reference": "1.0.0-rc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/canvas-1.0.0-rc1.zip",
-                "reference": "1.0.0-rc1",
-                "shasum": "8c1ff0b0279ee2656afe6233982fb86fd5ee000d"
+                "url": "https://ftp.drupal.org/files/projects/canvas-1.0.0-rc5.zip",
+                "reference": "1.0.0-rc5",
+                "shasum": "48597f069fd62485f0438da294e77621a869855e"
             },
             "require": {
                 "drupal/core": "^11.2",
@@ -2509,8 +2509,8 @@
             },
             "require-dev": {
                 "devizzent/cebe-php-openapi": "^1.1.4",
-                "drupal/ai": "^1.1",
-                "drupal/ai_agents": "^1.2@beta",
+                "drupal/ai": "^1.2.1",
+                "drupal/ai_agents": "^1.2",
                 "drupal/jsonapi_menu_items": "^1.2.8",
                 "drupal/metatag": "^2.1",
                 "drupal/pathauto": "^1.13",
@@ -2523,8 +2523,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-rc1",
-                    "datestamp": "1760137380",
+                    "version": "1.0.0-rc5",
+                    "datestamp": "1764184923",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
@@ -2610,6 +2610,10 @@
                     "homepage": "https://www.drupal.org/user/959536"
                 },
                 {
+                    "name": "phenaproxima",
+                    "homepage": "https://www.drupal.org/user/205645"
+                },
+                {
                     "name": "tedbow",
                     "homepage": "https://www.drupal.org/user/240860"
                 },
@@ -2624,6 +2628,10 @@
                 {
                     "name": "wim leers",
                     "homepage": "https://www.drupal.org/user/99777"
+                },
+                {
+                    "name": "wotnak",
+                    "homepage": "https://www.drupal.org/user/3558113"
                 }
             ],
             "description": "Canvas",
@@ -3236,17 +3244,17 @@
         },
         {
             "name": "drupal/custom_elements",
-            "version": "3.2.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/custom_elements.git",
-                "reference": "3.2.0"
+                "reference": "3.3.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/custom_elements-3.2.0.zip",
-                "reference": "3.2.0",
-                "shasum": "5aa5ac93e4b9792b86262411c3bde7d581ecbf87"
+                "url": "https://ftp.drupal.org/files/projects/custom_elements-3.3.1.zip",
+                "reference": "3.3.1",
+                "shasum": "01ace55b76978a80889905a3b55f121313862358"
             },
             "require": {
                 "drunomics/service-utils": "*",
@@ -3257,14 +3265,15 @@
                 "drupal/canvas_extjs": "1.x-dev",
                 "drupal/crop": "^2.4",
                 "drupal/entity_reference_revisions": "^1.12",
+                "drupal/lupus_ce_renderer": "^2.5.0",
                 "drupal/paragraphs": "^1.18",
                 "drupal/tablefield": "^3.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.2.0",
-                    "datestamp": "1760252380",
+                    "version": "3.3.1",
+                    "datestamp": "1764949152",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3435,17 +3444,17 @@
         },
         {
             "name": "drupal/lupus_decoupled",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/lupus_decoupled.git",
-                "reference": "1.3.0"
+                "reference": "1.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/lupus_decoupled-1.3.0.zip",
-                "reference": "1.3.0",
-                "shasum": "2cc4948228a7f418364c603583881a66a30fbd97"
+                "url": "https://ftp.drupal.org/files/projects/lupus_decoupled-1.4.0.zip",
+                "reference": "1.4.0",
+                "shasum": "5606ca903a5d5ff154ead4fc4c1a1b1298330866"
             },
             "require": {
                 "drunomics/service-utils": "*",
@@ -3485,8 +3494,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.3.0",
-                    "datestamp": "1760253150",
+                    "version": "1.4.0",
+                    "datestamp": "1764857529",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -14951,13 +14960,12 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/ai_agents_test": 15,
-        "drupal/canvas": 5,
         "drupal/canvas_extjs": 20,
         "drupal/default_content": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }
