@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d83ebcd0cab58278fc5576c7e012af04",
+    "content-hash": "7b75797306635d42024901be63cc8402",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2495,17 +2495,17 @@
         },
         {
             "name": "drupal/canvas",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/canvas.git",
-                "reference": "1.0.0"
+                "reference": "1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/canvas-1.0.0.zip",
-                "reference": "1.0.0",
-                "shasum": "a9791eb4bfe62ffbec24426ce9e9f66e9e1fa8c2"
+                "url": "https://ftp.drupal.org/files/projects/canvas-1.1.0.zip",
+                "reference": "1.1.0",
+                "shasum": "f34038e9dc5b9d05e3746e96d539e434250a2592"
             },
             "require": {
                 "drupal/core": "^11.2",
@@ -2518,17 +2518,19 @@
                 "drupal/jsonapi_menu_items": "^1.2.8",
                 "drupal/metatag": "^2.1",
                 "drupal/pathauto": "^1.13",
+                "drupal/search_api": "^1",
                 "drupal/simple_oauth": "^6",
                 "drush/drush": "^13",
                 "jangregor/phpstan-prophecy": "~1|~2",
                 "league/openapi-psr7-validator": "^0.22.0",
-                "mglaman/phpstan-drupal": "^2.0.9"
+                "mglaman/phpstan-drupal": "^2.0.9",
+                "phpstan/phpstan-strict-rules": "^2"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0",
-                    "datestamp": "1764875460",
+                    "version": "1.1.0",
+                    "datestamp": "1770310441",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2541,7 +2543,7 @@
                     "d=.; i=0; while [ $i -lt 10 ]; do if [ -f \"$d/composer.json\" ] && cat \"$d/composer.json\" | grep -q '\"type\"' && cat \"$d/composer.json\" | grep -q '\"project\"'; then readlink -f \"$d\"; break; fi; d=\"../$d\"; i=$((i+1)); done"
                 ],
                 "install-dev-deps": [
-                    "PACKAGES=$(cat composer.json | jq -r '.[\"require-dev\"] // {} | to_entries[] | \"\\(.key):\\(.value)\"' | tr '\\n' ' ') && composer --working-dir=$(composer run composer-root) require ${PACKAGES} --dev"
+                    "PACKAGES=$(cat composer.json | jq -r '.[\"require-dev\"] // {} | to_entries[] | \"\\(.key):\\(.value)\"' | tr '\\n' ' ') && composer --working-dir=$(composer run composer-root) require ${PACKAGES} --dev -W"
                 ],
                 "phpcs": [
                     "mkdir -p test-results && composer --working-dir=$(composer run composer-root) exec phpcs -- --standard=$(pwd)/phpcs.xml --report-width=auto --colors -s --report-junit=$(pwd)/test-results/phpcs.xml --report-full --report-summary $(pwd)"
@@ -2557,6 +2559,10 @@
                 "GPL-2.0-or-later"
             ],
             "authors": [
+                {
+                    "name": "attilatilman",
+                    "homepage": "https://www.drupal.org/user/3528404"
+                },
                 {
                     "name": "balintbrews",
                     "homepage": "https://www.drupal.org/user/613760"
@@ -2584,6 +2590,10 @@
                 {
                     "name": "jessebaker",
                     "homepage": "https://www.drupal.org/user/3546546"
+                },
+                {
+                    "name": "jptaranto",
+                    "homepage": "https://www.drupal.org/user/135234"
                 },
                 {
                     "name": "justafish",
@@ -2646,20 +2656,20 @@
         },
         {
             "name": "drupal/canvas_extjs",
-            "version": "1.0.0-beta2",
+            "version": "1.0.0-beta7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/canvas_extjs.git",
-                "reference": "1.0.0-beta2"
+                "reference": "1.0.0-beta7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/canvas_extjs-1.0.0-beta2.zip",
-                "reference": "1.0.0-beta2",
-                "shasum": "174fb49b34600e3ee30f3b13e21983243874d219"
+                "url": "https://ftp.drupal.org/files/projects/canvas_extjs-1.0.0-beta7.zip",
+                "reference": "1.0.0-beta7",
+                "shasum": "4e3e9352133f7962a13eb8f15d015e6559416b78"
             },
             "require": {
-                "drupal/canvas": ">=1.0.0 || 1.x-dev",
+                "drupal/canvas": ">=1.0.2 <1.2 || 1.x-dev",
                 "drupal/core": "^11.2",
                 "justinrainbow/json-schema": "^6.0"
             },
@@ -2672,8 +2682,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-beta2",
-                    "datestamp": "1764969779",
+                    "version": "1.0.0-beta7",
+                    "datestamp": "1770973154",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -14975,7 +14985,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/ai_agents_test": 15,
-        "drupal/canvas_extjs": 10,
         "drupal/default_content": 15
     },
     "prefer-stable": true,
