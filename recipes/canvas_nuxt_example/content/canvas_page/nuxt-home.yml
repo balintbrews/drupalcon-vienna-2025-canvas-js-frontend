@@ -50,32 +50,32 @@ default:
       component_id: extjs.humanify_grid
       inputs: "{}"
     - parent_uuid: 7899ab7e-c603-4110-9b2a-25ca3a4d0fa7
-      slot: content
+      slot: default
       uuid: 35379040-c351-4050-9c6d-8e4cd795dcf8
       component_id: extjs.humanify_card
       inputs: '{"iconNameFromLucide":"layout","iconColor":"blue","title":"Website design","description":"Knowing where to take inspiration from and why can be useful."}'
     - parent_uuid: 7899ab7e-c603-4110-9b2a-25ca3a4d0fa7
-      slot: content
+      slot: default
       uuid: 25bfb9a8-d04d-4158-b84f-3c9381f211df
       component_id: extjs.humanify_card
       inputs: '{"iconNameFromLucide":"code","iconColor":"sky","title":"Figma to code","description":"Imagine code that people are not terrified to look at, let alone maintain."}'
     - parent_uuid: 7899ab7e-c603-4110-9b2a-25ca3a4d0fa7
-      slot: content
+      slot: default
       uuid: 96df2f62-c80e-4ad3-8f68-a0d35b5dfd66
       component_id: extjs.humanify_card
       inputs: '{"iconNameFromLucide":"pen-tool","iconColor":"mauve","title":"Marketing copy-writing","description":"Sometimes it\u0027s advised not to sound like everyone else on the internet."}'
     - parent_uuid: 7899ab7e-c603-4110-9b2a-25ca3a4d0fa7
-      slot: content
+      slot: default
       uuid: 04c3e408-1caa-45c4-99a4-faaee8c40b71
       component_id: extjs.humanify_card
       inputs: '{"iconNameFromLucide":"share-2","iconColor":"green","title":"Social media","description":"We\u0027ll give you a discount if we only have to deal with Bluesky."}'
     - parent_uuid: 7899ab7e-c603-4110-9b2a-25ca3a4d0fa7
-      slot: content
+      slot: default
       uuid: 62a3be9f-7210-4ccc-9282-d88fd56b4325
       component_id: extjs.humanify_card
       inputs: '{"iconNameFromLucide":"bar-chart","iconColor":"yellow","title":"Analytics and reporting","description":"Our single promise is that we\u0027ll never include emojis in our reports."}'
     - parent_uuid: 7899ab7e-c603-4110-9b2a-25ca3a4d0fa7
-      slot: content
+      slot: default
       uuid: 96855491-06b0-4b82-804a-030f0b24d2e8
       component_id: extjs.humanify_card
       inputs: '{"iconNameFromLucide":"mail","iconColor":"pink","title":"Summarizing emails","description":"We don\u0027t actually do this, but we needed six things for this grid to look nice."}'
