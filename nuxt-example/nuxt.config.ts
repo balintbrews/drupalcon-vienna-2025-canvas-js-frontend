@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/global.css'],
 
   drupalCe: {
-    drupalBaseUrl: 'https://drupalcon-vienna-2025-canvas-js-frontend.ddev.site',
+    drupalBaseUrl: 'http://drupalcon-vienna-2025-canvas-js-frontend.ddev.site',
   },
 
   nitro: {
