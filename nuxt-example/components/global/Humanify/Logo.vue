@@ -50,9 +50,7 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
   /**
-   * Whether to render as a link to the front page
-   * @example true
-   * @example false
+   * @title Link to front page
    */
   linkToFrontPage?: boolean
 }>(), {

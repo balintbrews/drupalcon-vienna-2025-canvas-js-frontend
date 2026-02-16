@@ -5,9 +5,10 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
   /**
-   * Paragraph text (supports HTML)
-   * @example This is a paragraph of text
-   * @example Learn more about <strong>our services</strong>
+   * Paragraph text
+   * @contentMediaType text/html
+   * @formattingContext block
+   * @example <p>Learn more about <strong>our services</strong></p>
    */
   text?: string
 }>(), {

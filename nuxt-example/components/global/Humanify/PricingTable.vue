@@ -164,9 +164,7 @@ const props = withDefaults(defineProps<{
    */
   defaultTier?: 'entry' | 'mid' | 'advanced'
   /**
-   * Default billing period
-   * @example false
-   * @example true
+   * @title Annual billing
    */
   defaultIsAnnual?: boolean
   /**

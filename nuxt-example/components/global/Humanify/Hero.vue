@@ -32,6 +32,7 @@
 
 <script setup lang="ts">
 import { cva } from 'class-variance-authority'
+import type { CanvasImage } from '#app'
 
 withDefaults(defineProps<{
   /**
@@ -41,8 +42,10 @@ withDefaults(defineProps<{
    */
   title?: string
   /**
-   * Hero description (supports HTML)
-   * @example We help businesses grow with innovative solutions
+   * Hero description
+   * @contentMediaType text/html
+   * @formattingContext block
+   * @example <p>We help businesses grow with <strong>innovative solutions</strong></p>
    */
   description?: string
   /**
@@ -59,17 +62,11 @@ withDefaults(defineProps<{
   buttonLink?: string
   /**
    * Hero image
+   * @example src=https://images.unsplash.com/photo-1484959014842-cd1d967a39cf?auto=format&fit=crop&w=1770&q=80 alt="Woman playing the violin" width=1770 height=1180
    */
-  image?: {
-    alt: string
-    src: string
-    width: number
-    height: number
-  }
+  image?: CanvasImage
   /**
-   * Whether to use dark mode
-   * @example false
-   * @example true
+   * @title Dark mode
    */
   darkVariant?: boolean
   /**

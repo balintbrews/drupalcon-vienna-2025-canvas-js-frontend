@@ -32,9 +32,10 @@ withDefaults(defineProps<{
    */
   title?: string
   /**
-   * Card description (supports HTML)
-   * @example Learn more about our services
-   * @example Discover new features
+   * Card description
+   * @contentMediaType text/html
+   * @formattingContext block
+   * @example <p>Learn more about our <em>services</em></p>
    */
   description?: string
   /**

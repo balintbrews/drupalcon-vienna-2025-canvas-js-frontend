@@ -14,14 +14,14 @@ import { cva } from 'class-variance-authority'
 
 withDefaults(defineProps<{
   /**
-   * Copyright notice text (supports HTML)
-   * @example &copy; 2025 Humanify. All rights reserved.
+   * Copyright notice
+   * @contentMediaType text/html
+   * @formattingContext block
+   * @example <p>&copy; 2025 Humanify. All rights reserved.</p>
    */
   copyrightNotice?: string
   /**
-   * Whether to use dark mode
-   * @example false
-   * @example true
+   * @title Dark mode
    */
   darkVariant?: boolean
   /**

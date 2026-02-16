@@ -11,9 +11,7 @@ import { cva } from 'class-variance-authority'
 
 withDefaults(defineProps<{
   /**
-   * Whether to use dark mode
-   * @example false
-   * @example true
+   * @title Dark mode
    */
   darkVariant?: boolean
   /**
