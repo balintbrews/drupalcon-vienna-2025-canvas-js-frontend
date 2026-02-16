@@ -21,7 +21,7 @@
     "drupal/core-project-message": "^11.2",
     "drupal/core-recipe-unpack": "^11.2",
     "drupal/core-recommended": "^11.2",
-    "drupal/custom_elements": "^3.3.1",
+    "drupal/custom_elements": "3.x-dev",
     "drupal/lupus_decoupled": "^1.4.0",
     "drupal/simple_oauth": "^6.0",
     "drush/drush": "^13.6"
