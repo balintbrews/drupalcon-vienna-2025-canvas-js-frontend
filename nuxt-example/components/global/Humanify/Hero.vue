@@ -32,7 +32,6 @@
 
 <script setup lang="ts">
 import { cva } from 'class-variance-authority'
-import type { CanvasImage } from '#app'
 
 withDefaults(defineProps<{
   /**
