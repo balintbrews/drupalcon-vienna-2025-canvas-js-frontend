@@ -31,3 +31,8 @@ or `ddev drush en canvas_vite && ddev ui` for using the development server.
 
 See the [list of commands](https://docs.ddev.com/en/stable/users/usage/cli/)
 provided by DDEV out-of-the box.
+
+## Lupus Decoupled + Nuxt Integration
+
+For testing the **Lupus Decoupled Canvas integration** with a Nuxt frontend,
+see the [nuxt-example/README.md](nuxt-example/README.md) for setup instructions.

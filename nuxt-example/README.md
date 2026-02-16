@@ -1,4 +1,12 @@
-# Setup
+# Nuxt Example - Lupus Decoupled Canvas Integration
+
+> **Important: Use HTTP, not HTTPS!**
+>
+> The Drupal backend must be accessed via **HTTP** (not HTTPS) to avoid
+> mixed-content issues. Make sure `drush uli` outputs an `http://` URL.
+> The ddev config sets `DRUSH_OPTIONS_URI` to HTTP for this purpose.
+
+## Setup
 
 First, make sure you have lupus-decoupled install. In order to make a fresh site-install with lupus-decoupled run:
 
@@ -18,6 +26,5 @@ Keep the dev-server running during testing.
 There is now a "Home Nuxt" canvas page using the Nuxt components.
 You can access the decoupled, Nuxt server-rendered version of the page in your
 dev-server at:
-    
-    http://localhost:3000/nuxt-home
 
+    http://localhost:3000/nuxt-home
